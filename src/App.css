@@ -10,6 +10,14 @@
   flex-direction: column;
 }
 
+@media (max-width: 480px) {
+  .page-container {
+    height: -o-calc(100vh - 65px); /* opera */
+    height: -webkit-calc(100vh - 65px); /* google, safari */
+    height: -moz-calc(100vh - 65px); /* firefox */
+  }
+}
+
 .content-wrapper {
   width: 100%;
   max-width: 100%;
