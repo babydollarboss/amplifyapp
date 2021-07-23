@@ -37,6 +37,17 @@
   margin: 3vh 0 3vh 0;
   max-width: calc(100% - 40px);
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #f90, 0 0 35px #f90, 0 0 40px #f90, 0 0 50px #f90, 0 0 75px #f90;
+  position: relative;
+}
+
+.head-line__text .glow {
+  position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    opacity: 0;
+    animation: neon 1.5s ease-in-out infinite alternate;
 }
 
 .head-line__coming-soon {
@@ -71,12 +82,10 @@
 /* Causes too much lag */
 @keyframes neon {
   from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff9900,
-      0 0 70px #ff9900, 0 0 80px #ff9900, 0 0 100px #ff9900, 0 0 150px #ff9900;
+    opacity: 0;
   }
   to {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff9900,
-      0 0 35px #ff9900, 0 0 40px #ff9900, 0 0 50px #ff9900, 0 0 75px #ff9900;
+    opacity: 1;
   }
 }
 
