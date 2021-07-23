@@ -1,14 +1,21 @@
 import React from 'react';
 import logo from './logo.svg';
+import telegram from './telegram.svg'
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Hello from V2</h1>
-      </header>
+    <div className="page-container">
+      <div className="content-wrapper">
+        <img src={logo} className="logo" alt="logo" />
+        <div className='head-line__text'>BABY DOLLAR</div>
+        <div className='head-line__coming-soon'>COMING SOON</div>
+      </div>
+      <div className='social-links'>
+        <a href="https://t.me/babydollarChat" target="_blank" rel="noreferrer">
+          <img src={telegram} className="social-icon" alt="logo" />
+        </a>
+      </div>
     </div>
   );
 }
