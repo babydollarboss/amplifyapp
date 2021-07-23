@@ -31,12 +31,12 @@
 .head-line__text {
   letter-spacing: 2px;
   font-family: 'Audiowide';
-  animation: neon 1.5s ease-in-out infinite alternate;
   color: #fff;
   font-size: 3rem;
   text-align: center;
   margin: 3vh 0 3vh 0;
   max-width: calc(100% - 40px);
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #f90, 0 0 35px #f90, 0 0 40px #f90, 0 0 50px #f90, 0 0 75px #f90;
 }
 
 .head-line__coming-soon {
@@ -68,6 +68,7 @@
   transform: scale(1.2);
 }
 
+/* Causes too much lag */
 @keyframes neon {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff9900,
