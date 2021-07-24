@@ -64,7 +64,7 @@
   color: #e6dbae;
 }
 
-.head-line__coming-soon .fair-launch {
+.head-line__coming-soon.fair-launch {
   width: 100%;
   font-weight: bold;
   font-family: 'Audiowide';
@@ -118,6 +118,12 @@
   }
 }
 
+@media (max-width: 400px) {
+  .header {
+    font-size: 11px;
+  }
+}
+
 @media (max-width: 360px) {
   .header {
     font-size: 10px;
@@ -128,7 +134,7 @@
   text-decoration: unset;
   color: #F0B90B;
   font-weight: bold;
-  margin-left: 15px;
+  margin-left: 6px;
 }
 
 .header a:hover {
