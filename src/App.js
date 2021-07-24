@@ -18,6 +18,9 @@ function App() {
         </a>
       </div>
       <div className="content-wrapper">
+        <div class="head-line__coming-soon fair-launch">
+          Fair Launching on 24th July 6PM UTC!
+        </div>
         <img src={logo} className="logo" alt="logo" />
         <div className="head-line__text">
           <span>BABY DOLLAR</span>
@@ -29,7 +32,11 @@ function App() {
         <a href="https://t.me/babydollarChat" target="_blank" rel="noreferrer">
           <img src={telegram} className="social-icon" alt="logo" />
         </a>
-        <a href="https://twitter.com/BabyDollarBSC" target="_blank" rel="noreferrer">
+        <a
+          href="https://twitter.com/BabyDollarBSC"
+          target="_blank"
+          rel="noreferrer"
+        >
           <TweetIcon />
         </a>
       </div>
