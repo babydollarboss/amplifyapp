@@ -25,14 +25,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   flex: 1;
 }
 
 .logo {
-  width: 65%;
+  width: 55%;
   max-width: 380px;
-  max-height: 50vh;
+  max-height: 30vh;
   animation: boombox 0.8s ease-in-out infinite alternate;
 }
 
@@ -40,9 +40,8 @@
   letter-spacing: 2px;
   font-family: 'Audiowide';
   color: #fff;
-  font-size: 3rem;
+  font-size: 2.5rem;
   text-align: center;
-  margin: 3vh 0 3vh 0;
   max-width: calc(100% - 40px);
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #f90, 0 0 35px #f90, 0 0 40px #f90, 0 0 50px #f90, 0 0 75px #f90;
   position: relative;
@@ -65,8 +64,21 @@
   color: #e6dbae;
 }
 
+.head-line__coming-soon .fair-launch {
+  width: 100%;
+  font-weight: bold;
+  font-family: 'Audiowide';
+  max-width: calc(100% - 40px);
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: flex-start;
+  text-align: center;
+}
+
 .social-links {
-  height: 90px;
+  height: 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -75,16 +87,52 @@
 
 .social-links a {
   transition: all 0.2s ease;
+  height: 26px;
+  width: auto;
+  margin: 8px;
 }
 
-.social-inks a img {
-  height: 48px;
-  width: auto;
-  max-width: 48px;
+.social-links a > * {
+  height: inherit;
+  width: inherit;
 }
 
 .social-links a:hover {
   transform: scale(1.2);
+}
+
+.header {
+  color: #fff;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: hsl(0deg 0% 100% / 6%);
+  font-size: 16px;
+}
+
+@media (max-width: 480px) {
+  .header {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .header {
+    font-size: 10px;
+  }
+}
+
+.header a {
+  text-decoration: unset;
+  color: #F0B90B;
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+.header a:hover {
+  text-decoration: underline;
 }
 
 /* Causes too much lag */
