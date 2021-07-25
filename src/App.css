@@ -1,3 +1,8 @@
+:root {
+  --color-brand-primary: #f0b90b;
+  --container-padding: 15px;
+}
+
 .page-container {
   background: #0e0e0e;
   height: 100vh;
@@ -32,33 +37,33 @@
 .logo {
   width: 55%;
   max-width: 380px;
-  max-height: 30vh;
-  animation: boombox 0.8s ease-in-out infinite alternate;
+  animation: boombox 1.5s ease-in-out infinite alternate;
 }
 
 .head-line__text {
   letter-spacing: 2px;
-  font-family: 'Audiowide';
+  font-family: "Audiowide";
   color: #fff;
   font-size: 2.5rem;
   text-align: center;
   max-width: calc(100% - 40px);
-  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #f90, 0 0 35px #f90, 0 0 40px #f90, 0 0 50px #f90, 0 0 75px #f90;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 7px #fff, 0 0 20px #f90,
+    0 0 17px #f90, 0 0 0px #f90, 0 0 0px #f90, 0 0 0px #f90;
   position: relative;
 }
 
 .head-line__text .glow {
   position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    opacity: 0;
-    animation: neon 1.5s ease-in-out infinite alternate;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  opacity: 0;
+  animation: neon 1.5s ease-in-out infinite alternate;
 }
 
 .head-line__coming-soon {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-size: 1.5rem;
   letter-spacing: 3px;
   color: #e6dbae;
@@ -67,7 +72,7 @@
 .head-line__coming-soon.fair-launch {
   width: 100%;
   font-weight: bold;
-  font-family: 'Audiowide';
+  font-family: "Audiowide";
   max-width: calc(100% - 40px);
   font-size: 2rem;
   display: flex;
@@ -132,7 +137,7 @@
 
 .header a {
   text-decoration: unset;
-  color: #F0B90B;
+  color: #f0b90b;
   font-weight: bold;
   margin-left: 6px;
 }
@@ -141,40 +146,69 @@
   text-decoration: underline;
 }
 
+.work-in-progress {
+  font-family: "Audiowide";
+  font-size: 24px;
+  color: #fff;
+  letter-spacing: 3px;
+}
+
 /* Causes too much lag */
 @keyframes neon {
   from {
     opacity: 0;
   }
   to {
+    opacity: 0.3;
+  }
+}
+
+@keyframes fadeInTransition {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
     opacity: 1;
   }
 }
 
+@keyframes fadeOutTransition {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
 @keyframes boombox {
-    0% {
-      transform: scale(1);
+  0% {
+    transform: scale(1);
   }
   30% {
-      transform: scale(1);
+    transform: scale(1);
   }
   40% {
-      transform: scale(1.08);
+    transform: scale(1.08);
   }
   50% {
-      transform: scale(1);
+    transform: scale(1);
   }
 
   60% {
-      transform: scale(1);
+    transform: scale(1);
   }
   70% {
-      transform: scale(1.05);
+    transform: scale(1.05);
   }
   80% {
-      transform: scale(1);
+    transform: scale(1);
   }
   100% {
-      transform: scale(1);
+    transform: scale(1);
   }
 }

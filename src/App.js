@@ -1,46 +1,102 @@
 import React from "react";
-import logo from "./logo.svg";
-import telegram from "./telegram.svg";
+import Particles from "react-particles-js";
+import styled from "styled-components";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import "./App.css";
-import { TweetIcon } from "./components/SVGImages";
+
+import { TopBar, NavigationBar } from "./components/NavigationBar";
+import { Main } from "./components/Main";
+import { Routes } from "./routes/routes";
+
+const StyledParticles = styled(Particles)`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.8;
+  pointer-events: none;
+  canvas {
+    pointer-events: none;
+  }
+`;
 
 function App() {
   return (
-    <div className="page-container">
-      <div className="header">
-        Contract:
-        <a
-          href="https://bscscan.com/address/0x4E833a1BDEEb75b3778Cf1637a0Af420786C3099"
-          target="_blank"
-          rel="noreferrer"
-        >
-          0x4E833a1BDEEb75b3778Cf1637a0Af420786C3099
-        </a>
-      </div>
-      <div className="content-wrapper">
-        <div class="head-line__coming-soon fair-launch">
-          Fair Launching on 24th July 6PM UTC!
-        </div>
-        <img src={logo} className="logo" alt="logo" />
-        <div className="head-line__text">
-          <span>BABY DOLLAR</span>
-          <span className="glow">BABY DOLLAR</span>
-        </div>
-        <div className="head-line__coming-soon">$BABYDOLLAR</div>
-      </div>
-      <div className="social-links">
-        <a href="https://t.me/babydollarChat" target="_blank" rel="noreferrer">
-          <img src={telegram} className="social-icon" alt="logo" />
-        </a>
-        <a
-          href="https://twitter.com/BabyDollarBSC"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <TweetIcon />
-        </a>
-      </div>
-    </div>
+    <Router>
+      <Main>
+        <StyledParticles
+          params={{
+            background: {
+              color: {
+                value: "#000",
+              },
+            },
+            particles: {
+              number: {
+                value: 120,
+                density: {
+                  enable: false,
+                },
+              },
+              size: {
+                value: 2,
+                random: true,
+              },
+              move: {
+                direction: "middle",
+                outMode: "out",
+              },
+              links: {
+                enable: false,
+              },
+            },
+            interactivity: {
+              events: {
+                onClick: {
+                  enable: true,
+                  mode: "remove",
+                },
+              },
+              modes: {
+                remove: {
+                  quantity: 10,
+                },
+              },
+            },
+          }}
+        />
+        <TopBar />
+        <Switch>
+          <NavigationBar />
+        </Switch>
+        <Switch>
+          <Routes />
+        </Switch>
+      </Main>
+    </Router>
+    // <div className="page-container">
+    //   <div className="content-wrapper">
+    //     <img src={logo} className="logo" alt="logo" />
+    //     <div className="head-line__text">
+    //       <span>BABY DOLLAR</span>
+    //     </div>
+    //     <div className="head-line__coming-soon">$BABYDOLLAR</div>
+    //   </div>
+    //   <div className="social-links">
+    //     <a href="https://t.me/babydollarChat" target="_blank" rel="noreferrer">
+    //       <img src={telegram} className="social-icon" alt="logo" />
+    //     </a>
+    //     <a
+    //       href="https://twitter.com/BabyDollarBSC"
+    //       target="_blank"
+    //       rel="noreferrer"
+    //     >
+    //       <TweetIcon />
+    //     </a>
+    //   </div>
+    // </div>
   );
 }
 
