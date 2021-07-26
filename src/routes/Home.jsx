@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import Logo from "../logo.svg";
+import { LogoIcon } from "../components/SVGImages";
 
 const HomeContainer = styled.div`
   transition: all 0.3s ease;
@@ -14,19 +14,20 @@ const HomeContainer = styled.div`
   }
   .content {
     display: flex;
+    align-items: center;
   }
   .logo {
     width: 380px;
-    max-width: 50%;
+    max-width: 40%;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .logo img {
+  .logo svg {
     z-index: 1;
   }
-  .logo img.glow {
+  .logo svg.glow {
     position: absolute;
     filter: blur(40px) brightness(100);
     transform: scale(0.9);
@@ -143,8 +144,8 @@ export function Home({ visible }) {
     <HomeContainer className={!visible ? "hidden" : ""}>
       <div className="content">
         <div className="logo">
-          <img className="glow" src={Logo} alt="logo" />
-          <img src={Logo} alt="logo" />
+          <LogoIcon className="glow" />
+          <LogoIcon />
         </div>
         <div className="headline">
           <div className="headline-text">
