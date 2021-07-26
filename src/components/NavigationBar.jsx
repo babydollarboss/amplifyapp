@@ -91,6 +91,10 @@ const NavigationBarContainer = styled.div`
     opacity: 1;
     transform: scale(1) translateY(-50%);
   }
+  .header-logo svg {
+    height: 100%;
+    width: 100%;
+  }
   .header-logo svg.glow {
     position: absolute;
     filter: blur(5px) brightness(22.5);
