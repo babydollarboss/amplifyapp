@@ -117,6 +117,10 @@
   font-size: 16px;
 }
 
+.text-glow {
+  text-shadow: 0 0 1px #fff, 0 0 1px #fff, 0 0 1px #fff, 0 0 4px #fbff00, 0 0 5px #f90, 0 0 0px #f90, 0 0 0px #f90, 0 0 0px #f90;
+}
+
 @media (max-width: 480px) {
   .header {
     font-size: 12px;
@@ -181,6 +185,28 @@
   }
   100% {
     transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInLeftTransition {
+  0% {
+    transform: translate(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutLeftTransition {
+  0% {
+    transform: translate(100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0);
     opacity: 0;
   }
 }

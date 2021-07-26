@@ -9,7 +9,7 @@ import { Main } from "./components/Main";
 import { Routes } from "./routes/routes";
 
 const StyledParticles = styled(Particles)`
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   width: 100%;

@@ -31,7 +31,7 @@ const HomeContainer = styled.div`
   }
   .logo svg.glow {
     position: absolute;
-    filter: blur(40px) brightness(100);
+    filter: blur(30px) brightness(100);
     transform: scale(0.9);
   }
   .headline {

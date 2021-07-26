@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 import { Container } from "./Container";
-import { TelegramIcon, TweeterIcon } from "./SVGImages";
+import { TelegramIcon, TweeterIcon, LogoIcon } from "./SVGImages";
 
 const TopBarContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.3);
@@ -11,6 +11,7 @@ const TopBarContainer = styled.div`
   height: 45px;
   width: 100%;
   position: relative;
+  flex-shrink: 0;
   .title {
     opacity: 0.75;
     color: var(--color-brand-primary);
@@ -72,6 +73,29 @@ const NavigationBarContainer = styled.div`
   height: 80px;
   background-color: hsla(0, 0%, 100%, 0.01);
   border-bottom: 1px solid hsla(0, 0%, 100%, 0.03);
+  flex-shrink: 0;
+  .header-logo {
+    width: 55px;
+    position: absolute;
+    top: 50%;
+    left: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    transform: scale(0) translateY(-50%);
+    transform-origin: top;
+    opacity: 0;
+  }
+  .header-logo.visible {
+    opacity: 1;
+    transform: scale(1) translateY(-50%);
+  }
+  .header-logo svg.glow {
+    position: absolute;
+    filter: blur(5px) brightness(22.5);
+    z-index: -1;
+  }
   .container {
     display: flex;
     align-items: center;
@@ -82,6 +106,11 @@ const NavigationBarContainer = styled.div`
   .menu {
     height: 100%;
     display: flex;
+  }
+  @media (max-width: 767px) {
+    .header-logo {
+      display: none;
+    }
   }
   @media (max-width: 480px) {
     height: 50px;
@@ -167,6 +196,14 @@ export function NavigationBar({ location }) {
     <NavigationBarContainer>
       <Container>
         <div className="menu">
+          <div
+            className={`header-logo${
+              location.pathname !== "/" ? " visible" : ""
+            }`}
+          >
+            <LogoIcon />
+            <LogoIcon className="glow" />
+          </div>
           <NavigationBarButton
             active={location.pathname === "/"}
             onClick={() => goToPath("/")}
