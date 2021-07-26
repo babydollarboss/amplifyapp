@@ -26,6 +26,8 @@ const HomeContainer = styled.div`
   }
   .logo svg {
     z-index: 1;
+    width: 90%;
+    height: auto;
   }
   .logo svg.glow {
     position: absolute;
