@@ -5,7 +5,7 @@ export const Main = styled.div`
   background-color: hsl(222deg 16% 6%);
   box-sizing: border-box;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
 `;
