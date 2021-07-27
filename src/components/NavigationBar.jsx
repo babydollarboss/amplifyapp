@@ -3,7 +3,13 @@ import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 import { Container } from "./Container";
-import { TelegramIcon, TweeterIcon, LogoIcon } from "./SVGImages";
+import {
+  TelegramIcon,
+  TweeterIcon,
+  LogoIcon,
+  EmailIcon,
+  BSCScanIcon,
+} from "./SVGImages";
 
 const TopBarContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.3);
@@ -24,13 +30,18 @@ const TopBarContainer = styled.div`
     height: 100%;
   }
   .socials a {
-    opacity: 0.5;
+    opacity: 0.6;
     transition: all 0.2s ease;
-    margin-left: 12px;
+    margin-left: 16px;
   }
   .socials a:hover {
     opacity: 1;
     transform: scale(1.02);
+  }
+  .socials svg {
+    fill: var(--color-brand-primary);
+    width: 24px;
+    height: 24px;
   }
   @media (max-width: 480px) {
     .title {
@@ -48,6 +59,16 @@ export function TopBar() {
       <Container>
         <div className="title">THE OFFICIAL CLUB OF BABYDOLLAR</div>
         <div className="socials">
+          <a
+            href="https://bscscan.com/address/0x4e833a1bdeeb75b3778cf1637a0af420786c3099"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <BSCScanIcon />
+          </a>
+          <a href="mailto: boss@babydollar.app">
+            <EmailIcon />
+          </a>
           <a
             href="https://t.me/babydollarChat"
             target="_blank"

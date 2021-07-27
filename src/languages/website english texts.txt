@@ -1,0 +1,64 @@
+// Website English Texts
+
+// Landing Page
+
+1. HOLD BABYDOLLAR
+2. EARN DOLLAR
+3. Enjoy the first token that gives you DOLLARS
+4. Live Chart
+5. Buy
+
+// Features Page
+1.      7% Redistribution in BUSD
+1.a     7% of every transactions are redistributed to all holders. Holding BABYDOLLAR earns you BUSD . Minimum 200,000 tokens
+2.      Auto Paid Every 60 Minutes
+2.a     There's no need to claim, the BUSD rewards will be automatically sent to your wallet every 60 minutes
+3.      3% Auto Liquidity Pool
+3.a     3% of every transaction will be converted to BABYDOLLAR/BNB Liquidity Pool tokens and sent to be burned🔥
+4.      5% Marketing Wallet
+4.a     Marketing Wallet funds will be used for promotion, advertising, audits, giveaway contests and development
+5.      100% 🔒Locked LP
+5.a     
+In order to be fully transparent,
+100% of the liquidity pools
+are locked for 6 months.
+It'll be extended as the project grows.
+6.      💖Friendly Community
+6.a     We believe in transparency and positivity. We've one of the most positive and helpful community out there in the crypto space.
+
+// Roadmap Page
+
+1.      Newborn Baby
+1.a     Ideology
+1.b     Build up a core team
+1.c     Web Development (React)
+1.d     First telegram group created
+1.e     Baby Dollar is born
+1.f     Reached 100k Market Cap
+1.g     List in CoinSniper, GemFinder and CoinScope
+1.h     Build a strong community
+
+
+2.      Baby Steps
+2.a     First Marketing Push
+2.b     New Milestone: 300k Market Cap
+2.c     Website Update - Added Features & Roadmap
+2.d     Whitepaper
+2.e     PooCoin Ads
+2.f     DexTools Trending
+2.g     Doxxed Audits from Dessert Finance
+2.h     BTOK KYC + Promotion
+
+3.      Development Stages
+3.a     Earnings Dashboard
+3.b     Deploy website as Progress Web App
+3.c     Push Notification Alerts for rewards
+3.d     Baby Dollar Club Games
+3.e     Baby Dollar Club 1st Game - Baby Dollar Easter Hunt
+3.f     Baby Dollar Club 1st NFT Merchandise
+3.g     Baby Dollar Club VIP Group (Baby Dollar Bosses only)
+3.h     Baby Dollar Club 2nd Game - BabyPoly, NFT Monopoly Game
+
+4.      Space Exploration
+4.a     BabyDollar goes to the moon!
+4.b     Next destination: Mars
