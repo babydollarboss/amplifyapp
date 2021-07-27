@@ -9,6 +9,8 @@ import {
   LogoIcon,
   EmailIcon,
   BSCScanIcon,
+  MediumIcon,
+  FacebookIcon,
 } from "./SVGImages";
 
 const TopBarContainer = styled.div`
@@ -82,6 +84,20 @@ export function TopBar() {
             rel="noreferrer"
           >
             <TweeterIcon />
+          </a>
+          <a
+            href="https://medium.com/@babydollarbsc"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <MediumIcon />
+          </a>
+          <a
+            href="https://www.facebook.com/groups/babydollarbsc"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FacebookIcon />
           </a>
         </div>
       </Container>
