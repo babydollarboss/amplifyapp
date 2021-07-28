@@ -31,12 +31,14 @@ const TopBarContainer = styled.div`
     align-items: center;
     height: 100%;
   }
-  .socials a {
+  .socials a,
+  .socials .a {
     opacity: 0.6;
     transition: all 0.2s ease;
     margin-left: 16px;
   }
-  .socials a:hover {
+  .socials a:hover,
+  .socials .a:hover {
     opacity: 1;
     transform: scale(1.02);
   }
@@ -92,13 +94,12 @@ export function TopBar() {
           >
             <MediumIcon />
           </a>
-          <a
-            href="https://www.facebook.com/groups/babydollarbsc"
-            target="_blank"
-            rel="noreferrer"
+          <span
+            className="a"
+            onClick={() => alert("Temporary down, will be fixed soon!")}
           >
             <FacebookIcon />
-          </a>
+          </span>
         </div>
       </Container>
     </TopBarContainer>
