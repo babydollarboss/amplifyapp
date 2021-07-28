@@ -94,12 +94,13 @@ export function TopBar() {
           >
             <MediumIcon />
           </a>
-          <span
-            className="a"
-            onClick={() => alert("Temporary down, will be fixed soon!")}
+          <a
+            href="https://www.facebook.com/groups/babydollarbsc"
+            target="_blank"
+            rel="noreferrer"
           >
             <FacebookIcon />
-          </span>
+          </a>
         </div>
       </Container>
     </TopBarContainer>
