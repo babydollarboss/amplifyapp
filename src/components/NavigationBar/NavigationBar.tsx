@@ -12,6 +12,7 @@ import {
   MediumIcon,
   FacebookIcon,
 } from "../SVGImages";
+import { MenuItems } from "./constants";
 
 const TopBarContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.3);
@@ -113,31 +114,29 @@ const NavigationBarContainer = styled.div`
   background-color: hsla(0, 0%, 100%, 0.01);
   border-bottom: 1px solid hsla(0, 0%, 100%, 0.03);
   flex-shrink: 0;
+  z-index: 5;
   .header-logo {
     width: 55px;
     position: absolute;
-    top: 50%;
-    left: 110px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    transform: scale(0) translateY(-50%);
-    transform-origin: top;
+    transform-origin: center;
     opacity: 0;
+    left: 30px;
   }
   .header-logo.visible {
     opacity: 1;
-    transform: scale(1) translateY(-50%);
   }
   .header-logo svg {
     height: 100%;
     width: 100%;
+    z-index: 0;
   }
   .header-logo svg.glow {
     position: absolute;
     filter: blur(5px) brightness(22.5);
-    z-index: -1;
   }
   .container {
     display: flex;
@@ -149,10 +148,25 @@ const NavigationBarContainer = styled.div`
   .menu {
     height: 100%;
     display: flex;
+    align-items: center;
+  }
+  .menu-items {
+    height: 100%;
+    display: flex;
   }
   @media (max-width: 767px) {
-    .header-logo {
+    .menu-items {
       display: none;
+    }
+    .header-logo {
+      position: relative;
+      top: unset;
+      left: unset;
+      transform: unset;
+    }
+    .menu {
+      width: 100%;
+      justify-content: space-between;
     }
   }
   @media (max-width: 480px) {
@@ -244,6 +258,49 @@ const WalletButton = styled(({ connected, className }) => (
   </button>
 ))``;
 
+const BurgerMenu = styled(({ className, active, ...rest }) => (
+  <div className={`${className}${active ? " active" : ""}`} {...rest}>
+    <span className="line line-1" />
+    <span className="line line-2" />
+    <span className="line line-3" />
+  </div>
+))`
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  width: 35px;
+  height: 50px;
+  align-self: center;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  > .line {
+    height: 4px;
+    width: 100;
+    background: #fffffe;
+    border-radius: 10px;
+    margin: 4px 0;
+    user-select: none;
+    transition: transform 0.5s ease;
+  }
+  &:hover {
+    opacity: 1;
+  }
+  &.active .line-1 {
+    transform: rotate(405deg) translate(9px, 8.5px);
+    opacity: 0;
+  }
+  &.active .line-2 {
+    transform: rotate(405deg);
+  }
+  &.active .line-3 {
+    transform: rotate(315deg) translate(9px, -8.5px);
+  }
+  @media (max-width: 767px) {
+    display: flex;
+  }
+`;
+
 export function ConnectButton() {
   return <WalletButton />;
 }
@@ -252,21 +309,6 @@ interface INavigationBar {
   sidebarActive: boolean;
   setSidebarActive: (active: boolean) => void;
 }
-
-const MenuItems = [
-  {
-    title: "HOME",
-    path: "/",
-  },
-  {
-    title: "FEATURES",
-    path: "/features",
-  },
-  {
-    title: "ROADMAP",
-    path: "/roadmap",
-  },
-];
 
 export function NavigationBar({
   sidebarActive,
@@ -286,17 +328,20 @@ export function NavigationBar({
               location.pathname !== "/" ? " visible" : ""
             }`}
           >
-            <LogoIcon />
             <LogoIcon className="glow" />
+            <LogoIcon />
           </div>
-          {MenuItems.map(({ title, path }) => (
-            <NavigationBarButton
-              active={location.pathname === path}
-              onClick={() => goToPath(path)}
-            >
-              {title}
-            </NavigationBarButton>
-          ))}
+          <div className="menu-items">
+            {MenuItems.map(({ title, path }) => (
+              <NavigationBarButton
+                active={location.pathname === path}
+                onClick={() => goToPath(path)}
+              >
+                {title}
+              </NavigationBarButton>
+            ))}
+          </div>
+
           {/* <NavigationBarButton
             active={location.pathname === "/dapps"}
             onClick={() => goToPath("/dapps")}
@@ -309,6 +354,11 @@ export function NavigationBar({
           >
             WHITEPAPER
           </NavigationBarButton> */}
+          <BurgerMenu
+            className="burger-menu"
+            active={sidebarActive}
+            onClick={() => setSidebarActive(!sidebarActive)}
+          />
         </div>
       </Container>
     </NavigationBarContainer>

@@ -12,7 +12,11 @@ const DashboardContainer = styled.div`
   max-width: 100%;
   width: 100%;
   flex: 1;
-  background: rgb(0 0 0 / 75%);
+  background: linear-gradient(
+    181deg,
+    hsl(255deg 100% 6% / 90%),
+    hsl(233deg 98% 5% / 90%)
+  );
   position: relative;
   &.hidden {
     animation: fadeOutOpacity 0.5s ease forwards;
@@ -55,7 +59,7 @@ const DashboardInnerContainer = styled(Container)`
 `;
 
 export function Dashboard({ visible }) {
-  const { account, active } = useWeb3React();
+  const { active } = useWeb3React();
 
   return (
     <DashboardContainer className={!visible ? "hidden" : ""}>

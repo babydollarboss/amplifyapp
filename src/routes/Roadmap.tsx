@@ -84,7 +84,7 @@ const SecondBlock = [
 const ThirdBlock = [
   {
     done: false,
-    description: "Earnings Dashboard",
+    description: "Dividend Tracker",
   },
   {
     done: false,

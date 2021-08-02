@@ -56,10 +56,12 @@ const HomeContainer = styled.div`
     font-size: 24px;
     color: #fff;
     margin: 30px 0;
-    font-weight: bolder;
-    font-family: Roboto;
+    font-family: Audiowide;
     color: var(--color-brand-primary);
-    max-width: calc(100% - 30px);
+    max-width: 100%;
+    opacity: 0.8;
+    font-weight: bold;
+    letter-spacing: 1px;
   }
   .headline-buttons {
     display: flex;
@@ -96,14 +98,13 @@ const HomeContainer = styled.div`
     transition: all 0.3s ease;
   }
   .headline-buttons a.secondary {
-    border-color: var(--color-brand-primary);
     margin-left: 20px;
-    background: linear-gradient(335deg, #d83fbe, rgb(48 24 245));
+    background: linear-gradient(143deg, hsl(53deg 97% 71%), #f0b90b);
+    color: black;
     border: none;
   }
   .headline-buttons a.secondary:hover {
-    color: #fff;
-    box-shadow: 0px 0px 14px 2px hsl(269deg 100% 83%);
+    box-shadow: 0px 0px 14px 2px hsl(269deg 100% 33%);
     transition: all 0.3s ease;
     transform: scale(1.05);
   }
@@ -162,6 +163,9 @@ const HomeContainer = styled.div`
     }
   }
   @media (max-width: 800px) {
+    .logo {
+      max-width: 35%;
+    }
     .audit {
       margin: 0 auto;
     }
@@ -169,7 +173,8 @@ const HomeContainer = styled.div`
       font-size: 24px;
     }
     .headline-desc {
-      font-size: 16px;
+      font-size: 14px;
+      margin: 30px auto;
     }
     .content {
       flex-direction: column;
@@ -187,9 +192,6 @@ const HomeContainer = styled.div`
   @media (max-width: 480px) {
     .headline {
       align-items: center;
-    }
-    .logo {
-      max-width: 35%;
     }
     .headline-buttons a {
       font-size: 16px;
@@ -249,7 +251,7 @@ export function Home({ visible }: IRoute) {
             </div>
           </div>
           <div className="headline-desc">
-            The first token that rewards you with BUSD
+            The token that earns you BUSD
           </div>
           <div className="headline-buttons">
             <a
@@ -269,7 +271,12 @@ export function Home({ visible }: IRoute) {
               <span className="slippage">Slippage: 15 - 18%</span>
             </a>
           </div>
-          <a href="https://dessertswap.finance/audits/Baby%20Dollar%20BEP-20%20Audit%209558725.pdf" target="_blank" rel="noreferrer" className="audit">
+          <a
+            href="https://dessertswap.finance/audits/Baby%20Dollar%20BEP-20%20Audit%209558725.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="audit"
+          >
             <div className="audit-text">
               <span>DOXXED &amp; AUDITED BY</span>
               <span>Dessert Finance</span>

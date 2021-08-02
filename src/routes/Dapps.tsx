@@ -98,9 +98,10 @@ function DappBlock({ title, description, comingSoon, path }) {
 
 const DappsArray = [
   {
-    title: "Earnings Dashboard",
+    title: "Dividend Tracker",
     description: "Keep track of all your Baby Token rewards!",
     path: "/dashboard",
+    comingSoon: true
   },
   {
     comingSoon: true,
