@@ -61,13 +61,13 @@ export function Routes() {
       >
         <Dapps visible={pathname === "/dapps"} />
       </DelayedComponents>
-      <DelayedComponents
+      {/* <DelayedComponents
         delayMount={400}
         delayUnmount={300}
         isMounted={pathname === "/dashboard"}
       >
         <Dashboard visible={pathname === "/dashboard"} />
-      </DelayedComponents>
+      </DelayedComponents> */}
     </RouteContainer>
   );
 }

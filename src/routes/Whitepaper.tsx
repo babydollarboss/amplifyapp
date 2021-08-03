@@ -16,10 +16,8 @@ const WhitepaperContainer = styled.div`
 
 const InnerContainer = styled(Container)`
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   position: relative;
   width: 100%;
   height: 100%;
@@ -55,7 +53,7 @@ export function Whitepaper({ visible }) {
           Therefore, by rewarding holders BUSD, holders doesn&apos;t have to
           feel distress in spending their passive income.
         </p>
-        <h3>Transaction Tax Breakdowns -</h3>
+        <h3>Transaction Tax Breakdowns</h3>
         <div>-7% goes to BUSD rewards</div>
         <div>- 3% goes to LP</div>
         <div>- 5% goes to marketing</div>
@@ -130,7 +128,7 @@ export function Whitepaper({ visible }) {
           Fair Launch Time: July 24th 2021 Liquidity Locked: 100% - Unlock Date:
           12 months
         </p>
-        <h3>Security of by design</h3>
+        <h3>Secured by design</h3>
         <p>
           Locked Liquidity Initial liquidity will be locked for 12 months to
           provide holders with peace of mind that the token can always be
