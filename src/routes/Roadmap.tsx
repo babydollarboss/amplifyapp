@@ -148,7 +148,7 @@ const RoadmapBlocksContainer = styled(Container)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 60px auto;
+  margin: 24px auto;
   position: relative;
   .line {
     width: 2px;
@@ -333,6 +333,7 @@ const RoadmapRow = styled(({ className, done, description }: IRoadmapRow) => (
 export function Roadmap({ visible }: IRoute) {
   return (
     <RoadmapContainer className={!visible ? "hidden" : ""}>
+      <h2>Roadmap</h2>
       <RoadmapBlocksContainer>
         <div className="line">
           <div className="dot dot-1" />

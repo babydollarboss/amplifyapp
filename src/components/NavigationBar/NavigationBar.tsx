@@ -334,6 +334,7 @@ export function NavigationBar({
           <div className="menu-items">
             {MenuItems.map(({ title, path }) => (
               <NavigationBarButton
+                key={title}
                 active={location.pathname === path}
                 onClick={() => goToPath(path)}
               >

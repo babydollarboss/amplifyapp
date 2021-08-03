@@ -32,11 +32,6 @@ function App() {
         <StyledParticles
           id="tsparticles"
           options={{
-            background: {
-              color: {
-                value: "#000",
-              },
-            },
             particles: {
               number: {
                 value: 50,
@@ -68,7 +63,6 @@ function App() {
             },
           }}
         />
-        <div className="gradient-bg" />
         <TopBar />
         <Switch>
           <NavigationBar sidebarActive={sidebarActive} setSidebarActive={setSidebarActive} />

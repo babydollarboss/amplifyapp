@@ -12,6 +12,10 @@ export const MenuItems = [
     path: "/roadmap",
   },
   {
+    title: "WHITEPAPER",
+    path: "/whitepaper",
+  },
+  {
     title: "DAPPS",
     path: "/dapps",
   },

@@ -1,12 +1,17 @@
 html {
-  background: #0e0e0e;
   color: #fff;
+  background: linear-gradient(0deg, hsl(300deg 100% 9%), hsl(229deg 93% 11%));
 }
 body {
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Kanit", sans-serif;
   line-height: 1.5;
   overflow-x: hidden;
+}
+
+#root {
+  overflow: auto;
+  scroll-behavior: smooth;
 }
 
 code {
@@ -21,6 +26,16 @@ h4,
 h5,
 h6 {
   font-family: "Audiowide";
+}
+h2 {
+  font-size: 28px;
+  text-shadow: 0 0 5px #fff, 0 0 2px #fff, 0 0 1px #fff, 0 0 1px #f90,
+    0 0 4px #f8c, 0 0 0px #f90, 0 0 0px #f90, 0 0 0px #f90;
+  letter-spacing: 2px;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  text-align: center;
+  font-weight: normal;
 }
 
 ::-webkit-scrollbar-track {

@@ -17,3 +17,11 @@ export const getCakeAddress = () => {
 export const getWbnbAddress = () => {
   return getAddress(tokens.wbnb.address)
 }
+
+export const getBabyCakeAddress = () => {
+  return getAddress(tokens.babycake.address)
+}
+
+export const getBabyDollarAddress = () => {
+  return getAddress(tokens.babydollar.address)
+}

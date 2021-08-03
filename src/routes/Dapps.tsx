@@ -43,15 +43,14 @@ const DappBlockContainer = styled.div`
   font-size: 35px;
   text-align: center;
   border-radius: 10px;
-  border: 0px solid white;
-  font-family: "Audiowide";
+  border: 0px solid white
   cursor: pointer;
   transition: all 0.3s ease;
   margin: 20px;
   padding: 24px;
   position: relative;
   box-shadow: 0px 0px 14px 2px hsl(269deg 100% 73%);
-
+  cursor: pointer;
   .coming-soon {
     position: absolute;
     top: 0;
@@ -65,11 +64,14 @@ const DappBlockContainer = styled.div`
     border-radius: 10px;
     text-shadow: 0 0 0px #fff, 0 0 0px #fff, 0 0 8px #ffe, 0 0 7px #9100ff, 0 0 8px #a40cd6, 0 0 0px #f90, 0 0 0px #f90, 0 0 0px #f90;
   }
+  .title {
+    font-family: "Audiowide";
+  }
   .description {
     font-size: 20px;
     margin-top: 24px;
-    font-family: "Roboto";
-    opacity: 0.7;
+    opacity: 0.8;
+    font-family: 
   }
   &.soon {
     box-shadow: none;
@@ -101,7 +103,7 @@ const DappsArray = [
     title: "Dividend Tracker",
     description: "Keep track of all your Baby Token rewards!",
     path: "/dashboard",
-    comingSoon: true
+    comingSoon: true,
   },
   {
     comingSoon: true,
@@ -113,6 +115,7 @@ const DappsArray = [
 export function Dapps({ visible }) {
   return (
     <DappsContainer className={!visible ? "hidden" : ""}>
+      <h2>Decentralized Apps</h2>
       <DappBlocksContainer>
         {DappsArray.map(({ title, description, path, comingSoon }, index) => (
           <DappBlock
