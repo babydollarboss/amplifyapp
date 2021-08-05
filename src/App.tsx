@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import "./App.css";
 
-import { TopBar, NavigationBar } from "./components/NavigationBar";
+import { TopBar, NavigationBar, Sidebar } from "./components/NavigationBar";
 import { Main } from "./components/Main";
 import { Routes } from "./routes/routes";
 
@@ -27,15 +27,11 @@ function App() {
 
   return (
     <Router>
+      <Sidebar active={sidebarActive} setSidebarActive={setSidebarActive} />
       <Main>
         <StyledParticles
           id="tsparticles"
           options={{
-            background: {
-              color: {
-                value: "#000",
-              },
-            },
             particles: {
               number: {
                 value: 50,
@@ -67,7 +63,6 @@ function App() {
             },
           }}
         />
-        <div className="gradient-bg" />
         <TopBar />
         <Switch>
           <NavigationBar sidebarActive={sidebarActive} setSidebarActive={setSidebarActive} />

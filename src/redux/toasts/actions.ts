@@ -21,8 +21,8 @@ export function addToast({
     type: TOASTS_ADD_TOAST,
     payload: {
       ...rest,
-      autoDismiss: autoDismiss,
-      stayDuration: stayDuration,
+      autoDismiss,
+      stayDuration,
       id: id || randomId()
     }
   }

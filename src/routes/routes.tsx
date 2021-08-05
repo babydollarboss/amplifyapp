@@ -7,6 +7,7 @@ import { Features } from "./Features";
 import { Roadmap } from "./Roadmap";
 import { Dapps } from "./Dapps";
 import { Dashboard } from "./Dashboard";
+import { Whitepaper } from './Whitepaper'
 import { DelayedComponents } from "../components/DelayedComponents";
 
 const RouteContainer = styled.div`
@@ -14,7 +15,7 @@ const RouteContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   z-index: 1;
 `;
 
@@ -45,6 +46,13 @@ export function Routes() {
         isMounted={pathname === "/roadmap"}
       >
         <Roadmap visible={pathname === "/roadmap"} />
+      </DelayedComponents>
+      <DelayedComponents
+        delayMount={400}
+        delayUnmount={300}
+        isMounted={pathname === "/whitepaper"}
+      >
+        <Whitepaper visible={pathname === "/whitepaper"} />
       </DelayedComponents>
       <DelayedComponents
         delayMount={400}

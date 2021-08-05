@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
 
-import { IRoute } from './types'
+import { IRoute } from "./types";
 import { Container } from "../components/Container";
 
 const FeaturesContainer = styled.div`
@@ -9,7 +9,7 @@ const FeaturesContainer = styled.div`
   animation: fadeInTransition 0.5s ease forwards;
   transform-origin: center top;
   max-width: 100%;
-  padding: 15px;
+  padding: 24px;
   &.hidden {
     animation: fadeOutTransition 0.5s ease forwards;
   }
@@ -93,9 +93,9 @@ const FeatureBlocksContainer = styled(Container)`
 `;
 
 interface IFeatureBlock {
-  number: number
-  title: ReactNode | string
-  description: ReactNode | string
+  number: number;
+  title: ReactNode | string;
+  description: ReactNode | string;
 }
 
 function FeatureBlock({ number, title, description }: IFeatureBlock) {
@@ -118,8 +118,8 @@ function FeatureBlock({ number, title, description }: IFeatureBlock) {
 }
 
 interface IFeaturesItem {
-  title: ReactNode | string
-  description: ReactNode | string
+  title: ReactNode | string;
+  description: ReactNode | string;
 }
 
 const FeaturesArray = [
@@ -141,8 +141,10 @@ const FeaturesArray = [
     title: "Auto Paid Every 60 Minutes",
     description: (
       <div>
-        There&apos;s no need to claim, the <span className="text-glow">BUSD</span>{" "}
-        rewards will be automatically sent to your wallet every 60 minutes
+        There&apos;s no need to claim, the{" "}
+        <span className="text-glow">BUSD</span> rewards will be automatically
+        sent to your wallet every 60 minutes. Note: in periods of lower volume
+        this may take longer, but you always get your BUSD.
       </div>
     ),
   },
@@ -150,38 +152,52 @@ const FeaturesArray = [
     title: "3% Auto Liquidity Pool",
     description: (
       <span>
-        3% of every transaction will be converted to BABYDOLLAR/BNB Liquidity
-        Pool tokens and sent to be burned🔥
+        3% of every transaction is transformed into liquidity for Pancakeswap.
+        It’s automatic and helps create a price floor (stability).
       </span>
     ),
   },
   {
     title: "5% Marketing Wallet",
-    description: `Marketing Wallet funds will be used for promotion, advertising, audits, giveaway contests and development`,
-  },
-  {
-    title: "100% 🔒Locked LP",
     description: (
       <div>
-        In order to be fully transparent,
-        <br /> 100% of the liquidity pools
-        <br /> are locked for 6 months.
+        5% of every transaction is allocated to Marketing in BUSD (swapped to
+        BUSD in real time to avoid dumps)
         <br />
-        It&apos;ll be extended as the project grows.
+        So we can fuel our desires to make the most safe and exciting platform.
       </div>
     ),
   },
   {
-    title: "💖Friendly Community",
-    description: `We believe in transparency and positivity.
-    We've one of the most positive and helpful community out there in the crypto space.
-`,
+    title: "Secured By Design",
+    description: (
+      <div>
+        Initial Liquidity Provided will be locked with DXLock for more than 1
+        year.
+        <br />
+        The dev is doxxed and the contract is audited by Dessert Finance
+        <br />
+      </div>
+    ),
   },
-] as IFeaturesItem[]
+  {
+    title: "Exciting Plans Ahead",
+    description: (
+      <div>
+        Aside from being a dividend token, our goal is to really be a place that
+        brings gamers and investors together.
+        <br />
+        We want to make the crypto space safe, fun and exciting at the same
+        time.
+      </div>
+    ),
+  },
+] as IFeaturesItem[];
 
 export function Features({ visible }: IRoute) {
   return (
     <FeaturesContainer className={!visible ? "hidden" : ""}>
+      <h2>Features</h2>
       <FeatureBlocksContainer>
         {FeaturesArray.map(({ title, description }, index) => (
           <FeatureBlock

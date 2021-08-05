@@ -1,106 +1,181 @@
-import { useEffect, useState } from 'react'
-import BigNumber from 'bignumber.js'
-import { useWeb3React } from '@web3-react/core'
-import { getBep20Contract, getCakeContract } from '../utils/contractHelpers'
-import { BIG_ZERO } from '../utils/bigNumber'
-import { simpleRpcProvider } from '../utils/providers'
-import useRefresh from './useRefresh'
-import useLastUpdated from './useLastUpdated'
+import { useEffect, useState } from "react";
+import BigNumber from "bignumber.js";
+import { useWeb3React } from "@web3-react/core";
+import {
+  getBep20Contract,
+  getCakeContract,
+  getDividendTokenContract,
+} from "../utils/contractHelpers";
+import { BIG_ZERO } from "../utils/bigNumber";
+import { simpleRpcProvider } from "../utils/providers";
+import useRefresh from "./useRefresh";
+import useLastUpdated from "./useLastUpdated";
+import { getFullDisplayBalance } from "../utils/formatBalance";
 
 type UseTokenBalanceState = {
-  balance: BigNumber
-  fetchStatus: FetchStatus
-}
+  balance: BigNumber;
+  fetchStatus: FetchStatus;
+};
 
 export enum FetchStatus {
-  NOT_FETCHED = 'not-fetched',
-  SUCCESS = 'success',
-  FAILED = 'failed',
+  NOT_FETCHED = "not-fetched",
+  SUCCESS = "success",
+  FAILED = "failed",
 }
 
 const useTokenBalance = (tokenAddress: string) => {
-  const { NOT_FETCHED, SUCCESS, FAILED } = FetchStatus
+  const { NOT_FETCHED, SUCCESS, FAILED } = FetchStatus;
   const [balanceState, setBalanceState] = useState<UseTokenBalanceState>({
     balance: BIG_ZERO,
     fetchStatus: NOT_FETCHED,
-  })
-  const { account } = useWeb3React()
-  const { fastRefresh } = useRefresh()
+  });
+  const { account } = useWeb3React();
+  const { fastRefresh } = useRefresh();
 
   useEffect(() => {
     const fetchBalance = async () => {
-      const contract = getBep20Contract(tokenAddress)
+      const contract = getBep20Contract(tokenAddress);
       try {
-        const res = await contract.balanceOf(account)
-        setBalanceState({ balance: new BigNumber(res.toString()), fetchStatus: SUCCESS })
+        const res = await contract.balanceOf(account);
+        setBalanceState({
+          balance: new BigNumber(res.toString()),
+          fetchStatus: SUCCESS,
+        });
       } catch (e) {
-        console.error(e)
+        console.error(e);
         setBalanceState((prev) => ({
           ...prev,
           fetchStatus: FAILED,
-        }))
+        }));
       }
-    }
+    };
 
     if (account) {
-      fetchBalance()
+      fetchBalance();
     }
-  }, [account, tokenAddress, fastRefresh, SUCCESS, FAILED])
+  }, [account, tokenAddress, fastRefresh, SUCCESS, FAILED]);
 
-  return balanceState
+  return balanceState;
+};
+
+export interface IAccountDividendsInfo {
+  address: string;
+  index: string;
+  pendingEarnings: BigNumber;
+  earnings: BigNumber;
+  dividendTime: BigNumber;
 }
 
+type UseTokenDividendState = {
+  dividendsInfo?: IAccountDividendsInfo;
+  fetchStatus: FetchStatus;
+};
+
+export const useTokenDividends = (tokenSymbol: string) => {
+  const { NOT_FETCHED, SUCCESS, FAILED } = FetchStatus;
+  const [dividentInfoState, setDividendInfoState] =
+    useState<UseTokenDividendState>({
+      dividendsInfo: undefined,
+      fetchStatus: NOT_FETCHED,
+    });
+  const { account } = useWeb3React();
+  const { fastRefresh } = useRefresh();
+
+  useEffect(() => {
+    const fetchBalance = async () => {
+      const contract = getDividendTokenContract(tokenSymbol);
+      try {
+        const res = await contract.getAccountDividendsInfo(account);
+        const address = res[0];
+        const index = getFullDisplayBalance(new BigNumber(res[1].toString()));
+        const pendingEarnings = new BigNumber(res[3].toString());
+
+        const earnings = new BigNumber(res[4].toString());
+
+        const dividendTime = new BigNumber(res[7].toString());
+
+        const resultObject = {
+          address,
+          index,
+          pendingEarnings,
+          earnings,
+          dividendTime,
+        };
+
+        setDividendInfoState({
+          dividendsInfo: resultObject,
+          fetchStatus: SUCCESS,
+        });
+      } catch (e) {
+        console.error(e);
+        // setBalanceState((prev) => ({
+        //   ...prev,
+        //   fetchStatus: FAILED,
+        // }))
+      }
+    };
+
+    if (account) {
+      fetchBalance();
+    }
+  }, [account, tokenSymbol, fastRefresh, SUCCESS, FAILED]);
+
+  return dividentInfoState;
+};
+
 export const useTotalSupply = () => {
-  const { slowRefresh } = useRefresh()
-  const [totalSupply, setTotalSupply] = useState<BigNumber>()
+  const { slowRefresh } = useRefresh();
+  const [totalSupply, setTotalSupply] = useState<BigNumber>();
 
   useEffect(() => {
     async function fetchTotalSupply() {
-      const cakeContract = getCakeContract()
-      const supply = await cakeContract.totalSupply()
-      setTotalSupply(new BigNumber(supply.toString()))
+      const cakeContract = getCakeContract();
+      const supply = await cakeContract.totalSupply();
+      setTotalSupply(new BigNumber(supply.toString()));
     }
 
-    fetchTotalSupply()
-  }, [slowRefresh])
+    fetchTotalSupply();
+  }, [slowRefresh]);
 
-  return totalSupply
-}
+  return totalSupply;
+};
 
 export const useBurnedBalance = (tokenAddress: string) => {
-  const [balance, setBalance] = useState(BIG_ZERO)
-  const { slowRefresh } = useRefresh()
+  const [balance, setBalance] = useState(BIG_ZERO);
+  const { slowRefresh } = useRefresh();
 
   useEffect(() => {
     const fetchBalance = async () => {
-      const contract = getBep20Contract(tokenAddress)
-      const res = await contract.balanceOf('0x000000000000000000000000000000000000dEaD')
-      setBalance(new BigNumber(res.toString()))
-    }
+      const contract = getBep20Contract(tokenAddress);
+      const res = await contract.balanceOf(
+        "0x000000000000000000000000000000000000dEaD"
+      );
+      setBalance(new BigNumber(res.toString()));
+    };
 
-    fetchBalance()
-  }, [tokenAddress, slowRefresh])
+    fetchBalance();
+  }, [tokenAddress, slowRefresh]);
 
-  return balance
-}
+  return balance;
+};
 
 export const useGetBnbBalance = () => {
-  const [balance, setBalance] = useState(BIG_ZERO)
-  const { account } = useWeb3React()
-  const { lastUpdated, setLastUpdated } = useLastUpdated()
+  const [balance, setBalance] = useState(BIG_ZERO);
+  const { account } = useWeb3React();
+  const { lastUpdated, setLastUpdated } = useLastUpdated();
 
   useEffect(() => {
     const fetchBalance = async () => {
-      const walletBalance = await simpleRpcProvider.getBalance(account)
-      setBalance(new BigNumber(walletBalance.toString()))
-    }
+      const walletBalance = await simpleRpcProvider.getBalance(account);
+      setBalance(new BigNumber(walletBalance.toString()));
+    };
 
     if (account) {
-      fetchBalance()
+      fetchBalance();
     }
-  }, [account, lastUpdated, setBalance])
+  }, [account, lastUpdated, setBalance]);
 
-  return { balance, refresh: setLastUpdated }
-}
+  return { balance, refresh: setLastUpdated };
+};
 
-export default useTokenBalance
+export default useTokenBalance;

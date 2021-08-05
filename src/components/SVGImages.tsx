@@ -3,6 +3,40 @@ import styled from "styled-components";
 
 type SVGImageProps = React.HTMLAttributes<HTMLOrSVGElement>;
 
+export const MemberIcon = styled(({ className }: SVGImageProps) => (
+  <svg
+    width="22"
+    height="14"
+    viewBox="0 0 22 14"
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+  >
+    <path d="M15 6C16.66 6 17.99 4.66 17.99 3C17.99 1.34 16.66 0 15 0C13.34 0 12 1.34 12 3C12 4.66 13.34 6 15 6ZM7 6C8.66 6 9.99 4.66 9.99 3C9.99 1.34 8.66 0 7 0C5.34 0 4 1.34 4 3C4 4.66 5.34 6 7 6ZM7 8C4.67 8 0 9.17 0 11.5V14H14V11.5C14 9.17 9.33 8 7 8ZM15 8C14.71 8 14.38 8.02 14.03 8.05C15.19 8.89 16 10.02 16 11.5V14H22V11.5C22 9.17 17.33 8 15 8Z" />
+  </svg>
+))`
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+`;
+
+export const ChartIcon = styled(({ className }: SVGImageProps) => (
+  <svg
+    width="20"
+    height="13"
+    viewBox="0 0 20 13"
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+  >
+    <path
+      d="M1.5 12.98L7.5 6.97L11.5 10.97L20 1.41L18.59 0L11.5 7.97L7.5 3.97L0 11.48L1.5 12.98Z"
+    />
+  </svg>
+))`
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+`;
+
 export const TweeterIcon = styled(({ className }: SVGImageProps) => (
   <svg viewBox="0 0 24 24" aria-hidden="true" className={className}>
     <g>
