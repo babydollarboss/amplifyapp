@@ -154,7 +154,7 @@ const NavigationBarContainer = styled.div`
     height: 100%;
     display: flex;
   }
-  @media (max-width: 767px) {
+  @media (max-width: 991px) {
     .menu-items {
       display: none;
     }
@@ -318,7 +318,7 @@ const BurgerMenu = styled(({ className, active, ...rest }) => (
   &.active .line-3 {
     transform: rotate(315deg) translate(9px, -8.5px);
   }
-  @media (max-width: 767px) {
+  @media (max-width: 991px) {
     display: flex;
   }
 `;
