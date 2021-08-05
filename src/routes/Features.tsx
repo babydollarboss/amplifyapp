@@ -9,7 +9,7 @@ const FeaturesContainer = styled.div`
   animation: fadeInTransition 0.5s ease forwards;
   transform-origin: center top;
   max-width: 100%;
-  padding: 15px;
+  padding: 24px;
   &.hidden {
     animation: fadeOutTransition 0.5s ease forwards;
   }

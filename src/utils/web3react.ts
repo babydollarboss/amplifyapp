@@ -15,8 +15,6 @@ export const connectorsByName: { [connectorName in ConnectorNames]: any } = {
   [ConnectorNames.Injected]: injected,
 }
 
-console.log('connectorsByName', connectorsByName)
-
 export const getLibrary = (provider): ethers.providers.Web3Provider => {
   const library = new ethers.providers.Web3Provider(provider)
   library.pollingInterval = POLLING_INTERVAL

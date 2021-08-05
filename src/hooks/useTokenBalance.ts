@@ -101,7 +101,7 @@ export const useTokenDividends = (tokenSymbol: string) => {
           earnings,
           dividendTime,
         };
-        console.log("resultObject", resultObject);
+
         setDividendInfoState({
           dividendsInfo: resultObject,
           fetchStatus: SUCCESS,

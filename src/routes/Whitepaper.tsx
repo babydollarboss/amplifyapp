@@ -9,6 +9,8 @@ const WhitepaperContainer = styled.div`
   transform-origin: center top;
   max-width: 100%;
   width: 100%;
+  padding: 24px;
+  box-sizing: border-box;
   &.hidden {
     animation: fadeOutTransition 0.5s ease forwards;
   }
@@ -31,27 +33,20 @@ export function Whitepaper({ visible }) {
     <WhitepaperContainer className={!visible ? "hidden" : ""}>
       <h2>Whitepaper</h2>
       <InnerContainer>
-        <p>
+        {/* <p>
           BABY DOLLAR ($BABYDOLLAR) Whitepaper is written to let viewers
           understand our goals, strategy and roadmap. The information written
           below will allow viewers to understand how our redistribution
           mechanism work, what are our plans for the future and how we plan to
           make our ecosystem a safe, fun and exciting place to be.
-        </p>
+        </p> */}
         <h3>What is Baby Dollar?</h3>
         <p>
-          Baby Dollar is a token that rewards its holders with Binance USD(BUSD)
-          token through the volume of transactions that occurs with the token.
-          Additionally, Baby Dollar also grants access to holders exclusive Baby
-          Dollar Club games that rewards winners with BUSD and tradable NFTs
-          that can be staked or played in games to earn BUSD. Baby Dollar is
-          essentially a fork of the hugely popular Baby Cake token. However, we
-          felt it is more beneficial to reward players with BUSD. The value of
-          BUSD can be instantly known by an individual whereas it is difficult
-          to know the real value of a cryptocurrency because of price
-          fluctation. This causes many individual distress in spending it.
-          Therefore, by rewarding holders BUSD, holders doesn&apos;t have to
-          feel distress in spending their passive income.
+          Baby Dollar is a token that rewards holders with BUSD and grant holders access to Baby Dollar
+          Club games, contests and dapps.
+          Baby Dollar Club aims to be the number #1 platform for 
+          crypto enthusiasts to play games, enter weekly contests, manage their
+          investments and hangout.
         </p>
         <h3>Transaction Tax Breakdowns</h3>
         <div>-7% goes to BUSD rewards</div>
@@ -68,15 +63,14 @@ export function Whitepaper({ visible }) {
         </p>
         <h3>Why create the token?</h3>
         <p>
-          he team of Baby Dollar are cryptocurrency yield farmers, investors and
-          meme-coins fanatics who&apos;ve jump from one project to another only
-          to end up in a rug pull. Additionally, we are also tech enthusiasts
-          who&apos;ve been working professionally as developers and are avid
-          gamers. We thought, why not use our skills and passion, to make the
-          crypto space an exciting, fun and safe environment for investors. And
-          that&apos;s how the idea was born.
+          The team of Baby Dollar have been in the DeFi space but only as
+          investors. We are also tech enthusiasts who&apos;ve been working
+          professionally as developers and are avid gamers. We thought, why not
+          use our skills and passion, to make the crypto space an exciting, fun
+          and safe environment for investors. And that&apos;s how the idea was
+          born.
         </p>
-        <h3>BABY DOLLAR redistribution (similar to BABYCAKE)</h3>
+        <h3>BABY DOLLAR redistribution</h3>
         <p>
           We created a unique system that auto-claims for every single holder
           the amount due. The way it works for holders: You buy tokens and hold
@@ -89,7 +83,7 @@ export function Whitepaper({ visible }) {
           but don’t worry. It accumulates and is then sent when ready. You’ll
           never miss out.
         </p>
-        <h3>Behind the scenes (similar to BABYCAKE):</h3>
+        <h3>Behind the scenes:</h3>
         <p>-The contract keeps track in an array of all token holders</p>
         <p>-The contract keeps an index into the array for processing</p>
         <p>
@@ -145,14 +139,14 @@ export function Whitepaper({ visible }) {
         </p>
         -Integer Overflow -Integer Underflow -Callstack Depth Attack
         <br />
-        -Timestamp Dependency -Parity Multisig Bug
+        -Timestamp Dependency
+        <br />
+        -Parity Multisig Bug
         <br />
         -Transaction-Ordering
         <br />
         Dependency Both the token and dividend contract are verified and
-        available
-        <br />
-        for viewing on bscscan.
+        available for viewing on bscscan.
       </InnerContainer>
     </WhitepaperContainer>
   );

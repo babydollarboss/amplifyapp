@@ -1,9 +1,10 @@
 import { useEffect, useState, useRef } from 'react'
 import { useWeb3React } from '@web3-react/core'
 import { Web3Provider } from '@ethersproject/providers'
-import { simpleRpcProvider } from '../utils/providers'
 // eslint-disable-next-line import/no-unresolved
 import { Web3ReactContextInterface } from '@web3-react/core/dist/types'
+
+import { simpleRpcProvider } from '../utils/providers'
 
 /**
  * Provides a web3 provider with or without user's signer
