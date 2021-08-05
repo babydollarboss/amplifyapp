@@ -30,7 +30,7 @@ const DashboardContainer = styled.div`
     animation: fadeOutOpacity 0.5s ease forwards;
   }
   .connect-mask {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
@@ -107,6 +107,9 @@ const DashboardBlocks = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   gap: 20px;
+  @media (max-width: 991px) {
+    flex-direction: column;
+  }
 `;
 
 const DividendTokenEarningsContainer = styled.div`
@@ -140,12 +143,14 @@ const DividendTokenEarningsContainer = styled.div`
     width: 24px;
     height: 24px;
     border-radius: 100%;
+    overflow: hidden;
   }
   .reward-image {
     width: 18px;
     height: 18px;
     margin-right: -4px;
     margin-left: 6px;
+    overflow: hidden;
   }
   .earnings {
     display: flex;

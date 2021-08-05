@@ -4,6 +4,7 @@ import { useWeb3React } from "@web3-react/core";
 
 import { ConnectorNames } from "../utils/web3react";
 import useAuth from "../hooks/useAuth";
+import useEagerConnect from '../hooks/useEagerConnect'
 
 const WalletButton = styled(({ connected, account, className, ...rest }) => (
   <>
@@ -37,6 +38,7 @@ transition: all 0.3s ease;
 export function ConnectButton() {
   const { login, logout } = useAuth();
   const { account, active } = useWeb3React();
+  useEagerConnect()
 
   function connectWallet() {
     login(ConnectorNames.Injected);
