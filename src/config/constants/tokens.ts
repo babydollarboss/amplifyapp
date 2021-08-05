@@ -17,11 +17,6 @@ import bakeLogo from "../../tokenImages/bake.png";
 import maticLogo from "../../tokenImages/matic.webp";
 import usdtLogo from "../../tokenImages/usdt.webp";
 import uniswapLogo from "../../tokenImages/uniswap.webp";
-import dogemongoLogo from '../../tokenImages/dogemongo.webp'
-import dogeLogo from '../../tokenImages/doge.webp'
-import kittycakeLogo from '../../tokenImages/kittycake.webp'
-import xrpapesLogo from '../../tokenImages/xrpapes.jpg'
-import xrpLogo from '../../tokenImages/xrp.webp'
 
 import babydollarABI from "../abi/babydollar.json";
 import babycakeABI from "../abi/babycake.json";
@@ -30,9 +25,6 @@ import babymaticABI from "../abi/babymatic.json";
 import babyuniABI from "../abi/babyuni.json";
 import checoinABI from "../abi/checoin.json";
 import nanodogecoinABI from "../abi/nanodogecoin.json";
-import dogemongoABI from '../abi/dogemongo.json'
-import kittycakeABI from '../abi/kittycake.json'
-import xrpapesABI from '../abi/xrpapes.json'
 
 export const BABYDOLLAR = new Token(
   ChainId.MAINNET,
@@ -134,46 +126,13 @@ export const USDC = new Token(
 );
 
 const tokens = {
-  xrpapes: {
-    symbol: "XRPAPE",
-    address: {
-      56: "0x87c91dd4552c67a4b82f8008fa08458ca5e62008",
-      97: "",
-    },
-    projectLink: "https://xrpapes.club/",
-    image: xrpapesLogo,
-    abi: xrpapesABI,
-    rewardImage: xrpLogo
-  },
-  kittycake: {
-    symbol: "KCAKE",
-    address: {
-      56: "0xc22e8114818a918260662375450e19ac73d32852",
-      97: "",
-    },
-    projectLink: "https://kittycake.app/",
-    image: kittycakeLogo,
-    abi: kittycakeABI,
-    rewardImage: cakeLogo
-  },
-  dogemongo: {
-    symbol: "DOGO",
-    address: {
-      56: "0x9e6b3e35c8f563b45d864f9ff697a144ad28a371",
-      97: "",
-    },
-    projectLink: "https://dogemongo.com/",
-    image: dogemongoLogo,
-    abi: dogemongoABI,
-    rewardImage: dogeLogo
-  },
   babyxrp: {
     symbol: "BABYXRP",
     address: {
       56: "0x8beabaa4f025d00b4699d56a683758d692d17f20",
       97: "",
     },
-    projectLink: "https://www.babyxrp.org/",
+    projectlink: "https://www.babyxrp.org/",
     image: babyxrpLogo,
   },
   babymatic: {
@@ -194,7 +153,6 @@ const tokens = {
       97: "",
     },
     image: babybakeLogo,
-    projectLink: "https://babybake.app/",
     abi: babybakeABI,
     rewardImage: bakeLogo,
   },
@@ -2013,9 +1971,6 @@ export const DividendTokens = [
   tokens.babycake,
   tokens.checoin,
   tokens.nanodogecoin,
-  tokens.dogemongo,
-  tokens.kittycake,
-  tokens.xrpapes,
   tokens.babymatic,
   tokens.babybake,
   tokens.babyuni,

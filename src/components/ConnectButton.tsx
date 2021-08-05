@@ -39,10 +39,12 @@ export function ConnectButton() {
   const { account, active } = useWeb3React();
 
   function connectWallet() {
+    console.log("connect");
     login(ConnectorNames.Injected);
   }
 
   function disconnectWallet() {
+    console.log("disconnect");
     logout();
   }
 

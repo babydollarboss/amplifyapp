@@ -134,8 +134,6 @@ const RoadmapContainer = styled.div`
   width: 100%;
   animation: fadeInTransition 0.5s ease forwards;
   transform-origin: top;
-  padding: 24px;
-  box-sizing: border-box;
   &.hidden {
     animation: fadeOutTransition 0.5s ease forwards;
   }

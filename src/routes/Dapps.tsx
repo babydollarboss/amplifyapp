@@ -10,8 +10,6 @@ const DappsContainer = styled.div`
   transform-origin: center top;
   max-width: 100%;
   width: 100%;
-  padding: 24px;
-  box-sizing: border-box;
   &.hidden {
     animation: fadeOutTransition 0.5s ease forwards;
   }
@@ -105,6 +103,7 @@ const DappsArray = [
     title: "Dividend Tracker",
     description: "Keep track of all your Baby Token rewards!",
     path: "/dashboard",
+    comingSoon: true,
   },
   {
     comingSoon: true,

@@ -16,10 +16,6 @@ export const MenuItems = [
     path: "/whitepaper",
   },
   {
-    title: 'AUDIT',
-    externalPath: 'https://dessertswap.finance/audits/Baby%20Dollar%20BEP-20%20Audit%209558725.pdf'
-  },
-  {
     title: "DAPPS",
     path: "/dapps",
   },
