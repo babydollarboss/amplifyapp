@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 import { IRoute } from "./types";
 import { LogoIcon, MemberIcon, ChartIcon } from "../components/SVGImages";
-import BUSD from "../tokenImages/busd.webp";
+import BUSD from "../tokenImages/busd.png";
 
 const HomeContainer = styled.div`
   transition: all 0.3s ease;

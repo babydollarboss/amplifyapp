@@ -3,25 +3,25 @@ import { Token } from "@pancakeswap/sdk";
 import { ChainId } from "..";
 import babydollarLogo from "../../tokenImages/babydollar.png";
 import babycakeLogo from "../../tokenImages/babycake.png";
-import babybakeLogo from "../../tokenImages/babybake.webp";
-import babymaticLogo from "../../tokenImages/babymatic.webp";
-import babyuniLogo from "../../tokenImages/babyuni.webp";
-import babyxrpLogo from "../../tokenImages/babyxrp.webp";
-import checoinLogo from "../../tokenImages/checoin.webp";
-import ndcLogo from "../../tokenImages/nanodogecoin.webp";
+import babybakeLogo from "../../tokenImages/babybake.png";
+import babymaticLogo from "../../tokenImages/babymatic.png";
+import babyuniLogo from "../../tokenImages/babyuni.png";
+import babyxrpLogo from "../../tokenImages/babyxrp.png";
+import checoinLogo from "../../tokenImages/checoin.png";
+import ndcLogo from "../../tokenImages/nanodogecoin.png";
 
-import bnbLogo from "../../tokenImages/bnb.webp";
-import busdLogo from "../../tokenImages/busd.webp";
+import bnbLogo from "../../tokenImages/bnb.png";
+import busdLogo from "../../tokenImages/busd.png";
 import cakeLogo from "../../tokenImages/cake.png";
 import bakeLogo from "../../tokenImages/bake.png";
-import maticLogo from "../../tokenImages/matic.webp";
-import usdtLogo from "../../tokenImages/usdt.webp";
-import uniswapLogo from "../../tokenImages/uniswap.webp";
-import dogemongoLogo from '../../tokenImages/dogemongo.webp'
-import dogeLogo from '../../tokenImages/doge.webp'
-import kittycakeLogo from '../../tokenImages/kittycake.webp'
+import maticLogo from "../../tokenImages/matic.png";
+import usdtLogo from "../../tokenImages/usdt.png";
+import uniswapLogo from "../../tokenImages/uniswap.png";
+import dogemongoLogo from '../../tokenImages/dogemongo.png'
+import dogeLogo from '../../tokenImages/doge.png'
+import kittycakeLogo from '../../tokenImages/kittycake.png'
 import xrpapesLogo from '../../tokenImages/xrpapes.jpg'
-import xrpLogo from '../../tokenImages/xrp.webp'
+import xrpLogo from '../../tokenImages/xrp.png'
 
 import babydollarABI from "../abi/babydollar.json";
 import babycakeABI from "../abi/babycake.json";
