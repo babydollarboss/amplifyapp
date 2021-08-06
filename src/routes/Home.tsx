@@ -400,7 +400,7 @@ export function Home({ visible }: IRoute) {
                   <span className="live-chart">Live Chart</span>
                 </a>
                 <a
-                  href="https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x4E833a1BDEEb75b3778Cf1637a0Af420786C3099"
+                  href="https://pancakeswap.finance/swap?outputCurrency=0x4E833a1BDEEb75b3778Cf1637a0Af420786C3099"
                   target="_blank"
                   rel="noreferrer"
                   className="secondary"
