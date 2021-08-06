@@ -115,9 +115,16 @@ export const useTokenDividends = (tokenSymbol: string) => {
       }
     };
 
+    let interval;
+
     if (account) {
+      interval = setInterval(() => {
+        fetchBalance();
+      }, 5000);
       fetchBalance();
     }
+
+    return () => clearInterval(interval);
   }, [account, tokenSymbol, fastRefresh, SUCCESS, FAILED]);
 
   return dividentInfoState;

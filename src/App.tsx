@@ -37,8 +37,6 @@ function App() {
     }) => connectWalletPopup
   );
 
-  console.log("visible", visible);
-
   return (
     <Router>
       <Sidebar active={sidebarActive} setSidebarActive={setSidebarActive} />
