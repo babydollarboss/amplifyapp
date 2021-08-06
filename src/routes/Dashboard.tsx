@@ -10,7 +10,7 @@ import { DividendTokens, IDividendToken } from "../config/constants/tokens";
 import useClaimRewards from "../hooks/useClaimRewards";
 
 function numberWithCommas(x: number) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 const minimumTokensRequired = 100000000;
@@ -284,9 +284,8 @@ const TokenBalanceContainer = styled(DividendTokenEarningsContainer)`
   .detailed-info .payout-info a {
     max-width: 200px;
   }
-  .buy {
-    pointer-events: none;
-    visibility: hidden;
+  .buy button {
+    background: hsl(46deg 100% 40%);
   }
 `;
 
@@ -343,7 +342,9 @@ function DividendTokenHolding({
         <span className="name__text">{`${symbol}`}</span>
       </div>
       <div className="earnings">
-        <span className="balance__amount">{numberWithCommas(prettyBalance)}</span>
+        <span className="balance__amount">
+          {numberWithCommas(prettyBalance)}
+        </span>
       </div>
       {active && (
         <div className="detailed-info">
@@ -354,9 +355,7 @@ function DividendTokenHolding({
             </a>
           </div>
           <div className="buy">
-            <button type="button" disabled>
-              Buy
-            </button>
+            <button type="button">Buy</button>
           </div>
         </div>
       )}
@@ -388,17 +387,23 @@ function DividendTokenEarnings({
   const { onClaim } = useClaimRewards(symbol);
 
   const pendingEarnings = dividendsInfo
-    ? numberWithCommas(Number(getFullDisplayBalance(dividendsInfo.pendingEarnings, 18, 2)))
+    ? numberWithCommas(
+        Number(getFullDisplayBalance(dividendsInfo.pendingEarnings, 18, 2))
+      )
     : "-";
 
   const balanceAmount = dividendsInfo
-    ? numberWithCommas(Number(getFullDisplayBalance(dividendsInfo.earnings, 18, 2)))
+    ? numberWithCommas(
+        Number(getFullDisplayBalance(dividendsInfo.earnings, 18, 2))
+      )
     : "-";
 
   const nextDividendIn = dividendsInfo
-    ? `${numberWithCommas(Math.round(
-        Number(getFullDisplayBalance(dividendsInfo.earnings, 18, 0)) / 60
-      ))}mins`
+    ? `${numberWithCommas(
+        Math.round(
+          Number(getFullDisplayBalance(dividendsInfo.earnings, 18, 0)) / 60
+        )
+      )}mins`
     : "-";
 
   const handleClaim = async () => {
@@ -425,7 +430,7 @@ function DividendTokenEarnings({
     });
   }, [symbol, pendingEarnings, balanceAmount, nextDividendIn, onSetEarnings]);
 
-  if (!minimumRequirementMet && symbol !== 'BABYDOLLAR') {
+  if (!minimumRequirementMet && symbol !== "BABYDOLLAR") {
     return (
       <DividendTokenEarningsContainer>
         <div className="token">
@@ -445,7 +450,9 @@ function DividendTokenEarnings({
         </div>
         <div className="minimum-requirement">
           <span>Minimum BABYDOLLAR required:</span>
-          <span className="amount">{numberWithCommas(minimumTokensRequired)}</span>
+          <span className="amount">
+            {numberWithCommas(minimumTokensRequired)}
+          </span>
         </div>
       </DividendTokenEarningsContainer>
     );
@@ -639,13 +646,13 @@ export function Dashboard({ visible }) {
       <h2>Dividends Tracker</h2>
       <DashboardInnerContainer className={!active ? "blurred" : ""}>
         <DashboardBlocks>
-          <TotalBalanceSection
-            onSetBalance={onSetBalance}
-            dividendTokenHoldings={getDividendTokenHoldings()}
-          />
           <TotalEarningsSection
             minimumRequirementMet={minimumRequirementMet}
             onSetEarnings={onSetEarnings}
+            dividendTokenHoldings={getDividendTokenHoldings()}
+          />
+          <TotalBalanceSection
+            onSetBalance={onSetBalance}
             dividendTokenHoldings={getDividendTokenHoldings()}
           />
         </DashboardBlocks>

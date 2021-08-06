@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import Particles from "react-tsparticles";
 import styled from "styled-components";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./App.css";
 
 import { TopBar, NavigationBar, Sidebar } from "./components/NavigationBar";
 import { Main } from "./components/Main";
 import { Routes } from "./routes/routes";
+import { IConnectWalletPopupState } from "./redux/connectWalletPopup/types";
+import { DelayedComponents } from './components/DelayedComponents'
+import { WalletsModal } from './components/WalletsModal'
 
 const StyledParticles = styled(Particles)`
   position: fixed;
@@ -18,23 +22,40 @@ const StyledParticles = styled(Particles)`
   opacity: 0.8;
   pointer-events: none;
   canvas {
-    pointer-events: none;
+    pointer-events: none !important;
   }
 `;
 
 function App() {
-  const [sidebarActive, setSidebarActive] = useState(false)
+  const [sidebarActive, setSidebarActive] = useState(false);
+
+  const { visible } = useSelector(
+    ({
+      connectWalletPopup,
+    }: {
+      connectWalletPopup: IConnectWalletPopupState;
+    }) => connectWalletPopup
+  );
+
+  console.log("visible", visible);
 
   return (
     <Router>
       <Sidebar active={sidebarActive} setSidebarActive={setSidebarActive} />
+      <DelayedComponents
+        delayMount={400}
+        delayUnmount={300}
+        isMounted={visible}
+      >
+        <WalletsModal visible={visible} />
+      </DelayedComponents>
       <Main>
         <StyledParticles
           id="tsparticles"
           options={{
             particles: {
               number: {
-                value: 50,
+                value: 15,
                 density: {
                   enable: false,
                 },
@@ -65,7 +86,10 @@ function App() {
         />
         <TopBar />
         <Switch>
-          <NavigationBar sidebarActive={sidebarActive} setSidebarActive={setSidebarActive} />
+          <NavigationBar
+            sidebarActive={sidebarActive}
+            setSidebarActive={setSidebarActive}
+          />
         </Switch>
         <Switch>
           <Routes />
