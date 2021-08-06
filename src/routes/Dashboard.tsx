@@ -168,7 +168,8 @@ const DividendTokenEarningsContainer = styled.div`
   .detailed-info.txid {
     justify-content: center;
   }
-  button {
+  button,
+  .button {
     border: unset;
     color: #fff;
     border-radius: 10px;
@@ -179,11 +180,15 @@ const DividendTokenEarningsContainer = styled.div`
     cursor: pointer;
     box-shadow: rgb(14 14 44 / 40%) 0px -1px 0px 0px inset;
     letter-spacing: 1px;
+    text-decoration: none;
+    display: inline-block;
   }
-  button:hover {
+  button:hover,
+  .button:hover {
     opacity: 0.65;
   }
-  button:active {
+  button:active,
+  .button:hover {
     opacity: 0.85;
     transform: translateY(1px);
     box-shadow: none;
@@ -284,7 +289,7 @@ const TokenBalanceContainer = styled(DividendTokenEarningsContainer)`
   .detailed-info .payout-info a {
     max-width: 200px;
   }
-  .buy button {
+  .buy .button {
     background: hsl(46deg 100% 40%);
   }
 `;
@@ -324,6 +329,7 @@ function DividendTokenHolding({
   symbol,
   address,
   projectLink,
+  buyLink,
   image,
   active,
   onClick,
@@ -355,7 +361,9 @@ function DividendTokenHolding({
             </a>
           </div>
           <div className="buy">
-            <button type="button">Buy</button>
+            <a href={buyLink} className='button' target="_blank" rel="noreferrer">
+              Buy
+            </a>
           </div>
         </div>
       )}
