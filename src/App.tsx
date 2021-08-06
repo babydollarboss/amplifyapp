@@ -22,7 +22,7 @@ const StyledParticles = styled(Particles)`
   opacity: 0.8;
   pointer-events: none;
   canvas {
-    pointer-events: none;
+    pointer-events: none !important;
   }
 `;
 
@@ -55,7 +55,7 @@ function App() {
           options={{
             particles: {
               number: {
-                value: 10,
+                value: 15,
                 density: {
                   enable: false,
                 },
