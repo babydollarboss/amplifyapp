@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { useWeb3React } from "@web3-react/core";
-
-import { ConnectorNames } from "../utils/web3react";
-import useAuth from "../hooks/useAuth";
+import { useDispatch } from "react-redux";
+import { showConnectWalletPopup } from '../redux/connectWalletPopup/actions'
 
 const WalletButton = styled(({ connected, account, className, ...rest }) => (
   <>
@@ -35,17 +34,17 @@ transition: all 0.3s ease;
 `;
 
 export function ConnectButton() {
-  const { login, logout } = useAuth();
+  const dispatch = useDispatch()
+  // const { login, logout } = useAuth();
   const { account, active } = useWeb3React();
 
   function connectWallet() {
-    console.log("connect");
-    login(ConnectorNames.Injected);
+    dispatch(showConnectWalletPopup())
+    // login(ConnectorNames.Injected);
   }
 
   function disconnectWallet() {
-    console.log("disconnect");
-    logout();
+    // logout();
   }
 
   return (

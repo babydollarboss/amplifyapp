@@ -46,6 +46,23 @@ const SidebarMenuItem = styled.button`
   }
 `;
 
+const SidebarMenuLink = styled.a`
+  font-size: 32px;
+  font-family: Audiowide;
+  color: #fff;
+  text-decoration: none;
+  margin: 15px 0;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+
 interface ISidebar {
   active: boolean;
   setSidebarActive: (active: boolean) => void;
@@ -63,7 +80,7 @@ export function Sidebar({ setSidebarActive, active }: ISidebar) {
 
   return (
     <SidebarContainer className={active ? "active" : ""}>
-      {MenuItems.map(({ title, path }) => (
+      {MenuItems.map(({ title, path, externalPath }) => !externalPath ? (
         <SidebarMenuItem
           type="button"
           key={title}
@@ -71,6 +88,8 @@ export function Sidebar({ setSidebarActive, active }: ISidebar) {
         >
           {title}
         </SidebarMenuItem>
+      ) : (
+        <SidebarMenuLink key={title} target="_blank" rel="noreferrer" href={externalPath}>{title}</SidebarMenuLink>
       ))}
     </SidebarContainer>
   );

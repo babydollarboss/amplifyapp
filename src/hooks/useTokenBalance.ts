@@ -101,7 +101,7 @@ export const useTokenDividends = (tokenSymbol: string) => {
           earnings,
           dividendTime,
         };
-        console.log("resultObject", resultObject);
+
         setDividendInfoState({
           dividendsInfo: resultObject,
           fetchStatus: SUCCESS,
@@ -115,9 +115,16 @@ export const useTokenDividends = (tokenSymbol: string) => {
       }
     };
 
+    let interval;
+
     if (account) {
+      interval = setInterval(() => {
+        fetchBalance();
+      }, 5000);
       fetchBalance();
     }
+
+    return () => clearInterval(interval);
   }, [account, tokenSymbol, fastRefresh, SUCCESS, FAILED]);
 
   return dividentInfoState;

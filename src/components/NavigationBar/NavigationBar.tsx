@@ -154,7 +154,7 @@ const NavigationBarContainer = styled.div`
     height: 100%;
     display: flex;
   }
-  @media (max-width: 767px) {
+  @media (max-width: 991px) {
     .menu-items {
       display: none;
     }
@@ -175,17 +175,34 @@ const NavigationBarContainer = styled.div`
 `;
 
 const NavigationBarButton = styled(
-  ({ active, className, children, ...rest }) => (
-    <button
-      type="button"
-      className={`${className}${active ? " active" : ""}`}
-      {...rest}
-    >
-      <span>{children}</span>
-      <span className="glow">{children}</span>
-      <span className="line" />
-    </button>
-  )
+  ({ active, className, children, externalLink, ...rest }) => {
+    if (externalLink) {
+      return (
+        <a
+          target="_blank"
+          href={externalLink}
+          className={`${className}${active ? " active" : ""}`}
+          rel="noreferrer"
+          {...rest}
+        >
+          <span>{children}</span>
+          <span className="glow">{children}</span>
+          <span className="line" />
+        </a>
+      );
+    }
+    return (
+      <button
+        type="button"
+        className={`${className}${active ? " active" : ""}`}
+        {...rest}
+      >
+        <span>{children}</span>
+        <span className="glow">{children}</span>
+        <span className="line" />
+      </button>
+    );
+  }
 )`
   background: unset;
   border: unset;
@@ -201,6 +218,11 @@ const NavigationBarButton = styled(
   transition: all 0.3s ease;
   cursor: pointer;
   opacity: 0.7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
   .line {
     height: 2px;
     width: 100%;
@@ -296,7 +318,7 @@ const BurgerMenu = styled(({ className, active, ...rest }) => (
   &.active .line-3 {
     transform: rotate(315deg) translate(9px, -8.5px);
   }
-  @media (max-width: 767px) {
+  @media (max-width: 991px) {
     display: flex;
   }
 `;
@@ -332,11 +354,12 @@ export function NavigationBar({
             <LogoIcon />
           </div>
           <div className="menu-items">
-            {MenuItems.map(({ title, path }) => (
+            {MenuItems.map(({ title, path, externalPath }) => (
               <NavigationBarButton
                 key={title}
                 active={location.pathname === path}
                 onClick={() => goToPath(path)}
+                externalLink={externalPath}
               >
                 {title}
               </NavigationBarButton>

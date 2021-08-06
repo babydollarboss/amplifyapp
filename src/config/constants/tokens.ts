@@ -3,20 +3,25 @@ import { Token } from "@pancakeswap/sdk";
 import { ChainId } from "..";
 import babydollarLogo from "../../tokenImages/babydollar.png";
 import babycakeLogo from "../../tokenImages/babycake.png";
-import babybakeLogo from "../../tokenImages/babybake.webp";
-import babymaticLogo from "../../tokenImages/babymatic.webp";
-import babyuniLogo from "../../tokenImages/babyuni.webp";
-import babyxrpLogo from "../../tokenImages/babyxrp.webp";
-import checoinLogo from "../../tokenImages/checoin.webp";
-import ndcLogo from "../../tokenImages/nanodogecoin.webp";
+import babybakeLogo from "../../tokenImages/babybake.png";
+import babymaticLogo from "../../tokenImages/babymatic.png";
+import babyuniLogo from "../../tokenImages/babyuni.png";
+import babyxrpLogo from "../../tokenImages/babyxrp.png";
+import checoinLogo from "../../tokenImages/checoin.png";
+import ndcLogo from "../../tokenImages/nanodogecoin.png";
 
-import bnbLogo from "../../tokenImages/bnb.webp";
-import busdLogo from "../../tokenImages/busd.webp";
+import bnbLogo from "../../tokenImages/bnb.png";
+import busdLogo from "../../tokenImages/busd.png";
 import cakeLogo from "../../tokenImages/cake.png";
 import bakeLogo from "../../tokenImages/bake.png";
-import maticLogo from "../../tokenImages/matic.webp";
-import usdtLogo from "../../tokenImages/usdt.webp";
-import uniswapLogo from "../../tokenImages/uniswap.webp";
+import maticLogo from "../../tokenImages/matic.png";
+import usdtLogo from "../../tokenImages/usdt.png";
+import uniswapLogo from "../../tokenImages/uniswap.png";
+import dogemongoLogo from "../../tokenImages/dogemongo.png";
+import dogeLogo from "../../tokenImages/doge.png";
+import kittycakeLogo from "../../tokenImages/kittycake.png";
+import xrpapesLogo from "../../tokenImages/xrpapes.jpg";
+import xrpLogo from "../../tokenImages/xrp.png";
 
 import babydollarABI from "../abi/babydollar.json";
 import babycakeABI from "../abi/babycake.json";
@@ -25,6 +30,9 @@ import babymaticABI from "../abi/babymatic.json";
 import babyuniABI from "../abi/babyuni.json";
 import checoinABI from "../abi/checoin.json";
 import nanodogecoinABI from "../abi/nanodogecoin.json";
+import dogemongoABI from "../abi/dogemongo.json";
+import kittycakeABI from "../abi/kittycake.json";
+import xrpapesABI from "../abi/xrpapes.json";
 
 export const BABYDOLLAR = new Token(
   ChainId.MAINNET,
@@ -126,14 +134,51 @@ export const USDC = new Token(
 );
 
 const tokens = {
+  xrpapes: {
+    symbol: "XRPAPE",
+    address: {
+      56: "0x87c91dd4552c67a4b82f8008fa08458ca5e62008",
+      97: "",
+    },
+    projectLink: "https://xrpapes.club/",
+    image: xrpapesLogo,
+    abi: xrpapesABI,
+    rewardImage: xrpLogo,
+    buyLink: "https://pancakeswap.finance/swap?outputCurrency=0x87c91dd4552c67a4b82f8008fa08458ca5e62008"
+  },
+  kittycake: {
+    symbol: "KCAKE",
+    address: {
+      56: "0xc22e8114818a918260662375450e19ac73d32852",
+      97: "",
+    },
+    projectLink: "https://kittycake.app/",
+    image: kittycakeLogo,
+    abi: kittycakeABI,
+    rewardImage: cakeLogo,
+    buyLink: "https://pancakeswap.finance/swap?outputCurrency=0xc22e8114818a918260662375450e19ac73d32852"
+  },
+  dogemongo: {
+    symbol: "DOGO",
+    address: {
+      56: "0x9e6b3e35c8f563b45d864f9ff697a144ad28a371",
+      97: "",
+    },
+    projectLink: "https://dogemongo.com/",
+    image: dogemongoLogo,
+    abi: dogemongoABI,
+    rewardImage: dogeLogo,
+    buyLink: "https://pancakeswap.finance/swap?outputCurrency=0x9e6b3e35c8f563b45d864f9ff697a144ad28a371"
+  },
   babyxrp: {
     symbol: "BABYXRP",
     address: {
       56: "0x8beabaa4f025d00b4699d56a683758d692d17f20",
       97: "",
     },
-    projectlink: "https://www.babyxrp.org/",
+    projectLink: "https://www.babyxrp.org/",
     image: babyxrpLogo,
+    buyLink: "https://pancakeswap.finance/swap?outputCurrency=0x8beabaa4f025d00b4699d56a683758d692d17f20"
   },
   babymatic: {
     symbol: "BABYMATIC",
@@ -145,6 +190,7 @@ const tokens = {
     image: babymaticLogo,
     abi: babymaticABI,
     rewardImage: maticLogo,
+    buyLink: "https://pancakeswap.finance/swap?outputCurrency=0xb2ce41b71d93d7f5878f985c3e1a87a6229019be"
   },
   babybake: {
     symbol: "BABYBAKE",
@@ -153,8 +199,10 @@ const tokens = {
       97: "",
     },
     image: babybakeLogo,
+    projectLink: "https://babybake.app/",
     abi: babybakeABI,
     rewardImage: bakeLogo,
+    buyLink: "https://pancakeswap.finance/swap?outputCurrency=0x4f73b1f7adcf65d0fa744fd49a8d0341f478cd24"
   },
   babydollar: {
     symbol: "BABYDOLLAR",
@@ -166,6 +214,7 @@ const tokens = {
     image: babydollarLogo,
     abi: babydollarABI,
     rewardImage: busdLogo,
+    buyLink: "https://pancakeswap.finance/swap?outputCurrency=0x4E833a1BDEEb75b3778Cf1637a0Af420786C3099"
   },
   babycake: {
     symbol: "BABYCAKE",
@@ -177,6 +226,8 @@ const tokens = {
     image: babycakeLogo,
     abi: babycakeABI,
     rewardImage: cakeLogo,
+    buyLink:
+      "https://pancakeswap.finance/swap?outputCurrency=0xdb8d30b74bf098af214e862c90e647bbb1fcc58c",
   },
   babyuni: {
     symbol: "BABYUNI",
@@ -188,6 +239,7 @@ const tokens = {
     image: babyuniLogo,
     abi: babyuniABI,
     rewardImage: uniswapLogo,
+    buyLink: "https://pancakeswap.finance/swap?outputCurrency=0x4e7f41b1495f024668eff303dcec76389a636da1"
   },
   checoin: {
     symbol: "CHECOIN",
@@ -199,6 +251,7 @@ const tokens = {
     image: checoinLogo,
     abi: checoinABI,
     rewardImage: bnbLogo,
+    buyLink: "https://pancakeswap.finance/swap?outputCurrency=0x54626300818e5c5b44db0fcf45ba4943ca89a9e2",
   },
   nanodogecoin: {
     symbol: "NDC",
@@ -210,6 +263,7 @@ const tokens = {
     image: ndcLogo,
     abi: nanodogecoinABI,
     rewardImage: usdtLogo,
+    buyLink: "https://pancakeswap.finance/swap?outputCurrency=0x1b41821625d8cfad21cd56491dacd57ecacc83de"
   },
   bnb: {
     symbol: "BNB",
@@ -1961,9 +2015,10 @@ export interface IDividendToken {
     "97": string;
   };
   projectLink: string;
+  buyLink: string;
   image: string;
-  rewardImage: string,
-  abi: any
+  rewardImage: string;
+  abi: any;
 }
 
 export const DividendTokens = [
@@ -1971,6 +2026,9 @@ export const DividendTokens = [
   tokens.babycake,
   tokens.checoin,
   tokens.nanodogecoin,
+  tokens.dogemongo,
+  tokens.kittycake,
+  tokens.xrpapes,
   tokens.babymatic,
   tokens.babybake,
   tokens.babyuni,
