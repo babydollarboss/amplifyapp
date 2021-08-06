@@ -42,11 +42,9 @@ export function Whitepaper({ visible }) {
         </p> */}
         <h3>What is Baby Dollar?</h3>
         <p>
-          Baby Dollar is a token that rewards holders with BUSD and grant holders access to Baby Dollar
-          Club games, contests and dapps.
-          Baby Dollar Club aims to be the number #1 platform for 
-          crypto enthusiasts to play games, enter weekly contests, manage their
-          investments and hangout.
+          Baby Dollar is a reflection token that rewards holders with BUSD and
+          grant holders access to Baby Dollar Club games, contests and
+          decentralized apps.
         </p>
         <h3>Transaction Tax Breakdowns</h3>
         <div>-7% goes to BUSD rewards</div>
