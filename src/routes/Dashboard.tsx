@@ -13,7 +13,9 @@ function numberWithCommas(x: number) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-const minimumTokensRequired = 100000000;
+// const minimumTokensRequired = 100000000;
+// const minimumTokensRequired = 10000000;
+const minimumTokensRequired = -1;
 
 const DashboardContainer = styled.div`
   transition: all 0.3s ease;
@@ -165,6 +167,13 @@ const DividendTokenEarningsContainer = styled.div`
     font-size: 14px;
     align-items: center;
   }
+  .detailed-info .label {
+    font-size: 13px;
+  }
+  .detailed-info .value {
+    color: var(--color-brand-primary);
+    font-size: 13px;
+  }
   .detailed-info.txid {
     justify-content: center;
   }
@@ -174,7 +183,7 @@ const DividendTokenEarningsContainer = styled.div`
     color: #fff;
     border-radius: 10px;
     background: hsl(256deg 100% 60%);
-    padding: 8px 18px;
+    padding: 6px 14px;
     font-family: "Kanit";
     font-weight: bold;
     cursor: pointer;
@@ -194,7 +203,7 @@ const DividendTokenEarningsContainer = styled.div`
     box-shadow: none;
   }
   .payout-info .label {
-    margin-right: 12px;
+    margin-right: 6px;
   }
   .detailed-info.txid .payout-info {
     font-size: 12px;
@@ -361,7 +370,12 @@ function DividendTokenHolding({
             </a>
           </div>
           <div className="buy">
-            <a href={buyLink} className='button' target="_blank" rel="noreferrer">
+            <a
+              href={buyLink}
+              className="button"
+              target="_blank"
+              rel="noreferrer"
+            >
               Buy
             </a>
           </div>
@@ -406,13 +420,26 @@ function DividendTokenEarnings({
       )
     : "-";
 
-  const nextDividendIn = dividendsInfo
-    ? `${numberWithCommas(
-        Math.round(
-          Number(getFullDisplayBalance(dividendsInfo.earnings, 18, 0)) / 60
-        )
-      )}mins`
-    : "-";
+  // const dividendTime = dividendsInfo
+  //   ? getFullDisplayBalance(dividendsInfo.dividendTime, 18, 0)
+  //   : 0;
+
+  let nextDividendIn = "-";
+  if (dividendsInfo) {
+    const timeLeftInSeconds = Math.round(
+      Number(getFullDisplayBalance(dividendsInfo.dividendTime, 0, 0))
+    );
+    const timeLeftInMinutes = timeLeftInSeconds / 60;
+    const minuteCutOff = Math.round(Math.floor(timeLeftInMinutes));
+    const remainingSeconds = timeLeftInSeconds - minuteCutOff * 60;
+
+    nextDividendIn =
+      timeLeftInSeconds < 60
+        ? "< 1min"
+        : `${minuteCutOff}min ${
+            remainingSeconds > 0 ? `${remainingSeconds}sec` : ""
+          }`;
+  }
 
   const handleClaim = async () => {
     setClaiming(true);
@@ -489,8 +516,8 @@ function DividendTokenEarnings({
       {active && (
         <div className="detailed-info">
           <div className="payout-info">
-            <span className="label">Next dividend in:</span>
-            {nextDividendIn}
+            <span className="label">Next payout:</span>
+            <span className="value">{nextDividendIn}</span>
           </div>
           <div className="claim">
             <button type="button" onClick={handleClaim} disabled={claiming}>

@@ -7,7 +7,7 @@ const useClaim = (symbol: string) => {
   const handleClaim = useCallback(
     async () => {
       const txHash = await claim(symbol, library.getSigner())
-      console.info(txHash)
+      // console.info(txHash)
       return txHash
     },
     [symbol, library]

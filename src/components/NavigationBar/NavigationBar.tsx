@@ -9,8 +9,8 @@ import {
   LogoIcon,
   EmailIcon,
   BSCScanIcon,
-  MediumIcon,
-  FacebookIcon,
+  // MediumIcon,
+  // FacebookIcon,
 } from "../SVGImages";
 import { MenuItems } from "./constants";
 
@@ -88,7 +88,7 @@ export function TopBar() {
           >
             <TweeterIcon />
           </a>
-          <a
+          {/* <a
             href="https://medium.com/@babydollarbsc"
             target="_blank"
             rel="noreferrer"
@@ -101,7 +101,7 @@ export function TopBar() {
             rel="noreferrer"
           >
             <FacebookIcon />
-          </a>
+          </a> */}
         </div>
       </Container>
     </TopBarContainer>

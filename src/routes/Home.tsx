@@ -475,14 +475,14 @@ export function Home({ visible }: IRoute) {
           </div>
           <div className="total-paid">
             <div className="footer-value">
-              <span>$25769.99</span>
+              <span>$25866.11</span>
               <img src={BUSD} alt="busd" />
             </div>
             <div className="footer-title">Total Paid To Members</div>
           </div>
           <div className="marketcap">
             <div className="footer-value">
-              <span>$44,309.00</span>
+              <span>$49,629.00</span>
               <ChartIcon />
             </div>
             <div className="footer-title">Market Cap</div>

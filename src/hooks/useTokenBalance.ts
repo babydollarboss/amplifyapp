@@ -93,7 +93,6 @@ export const useTokenDividends = (tokenSymbol: string) => {
         const earnings = new BigNumber(res[4].toString());
 
         const dividendTime = new BigNumber(res[7].toString());
-
         const resultObject = {
           address,
           index,

@@ -60,7 +60,7 @@ const SecondBlock = [
     description: "Website Update - Added Features & Roadmap",
   },
   {
-    done: false,
+    done: true,
     description: "Whitepaper",
   },
   {
@@ -74,16 +74,12 @@ const SecondBlock = [
   {
     done: true,
     description: "Doxxed Audits from Dessert Finance",
-  },
-  {
-    done: false,
-    description: "BTOK KYC + Promotion",
-  },
+  }
 ];
 
 const ThirdBlock = [
   {
-    done: false,
+    done: true,
     description: "Dividend Tracker",
   },
   {
