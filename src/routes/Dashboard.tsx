@@ -443,7 +443,7 @@ function DividendTokenEarnings({
     }`;
 
     if (nextDividendIn === "" && Number(pendingEarnings) > 0) {
-      nextDividendIn = "waiting for turn";
+      nextDividendIn = "in queue";
     }
   }
 
@@ -532,7 +532,7 @@ function DividendTokenEarnings({
               </button>
             </div>
           </div>
-          {nextDividendIn === "" && Number(pendingEarnings) > 0 && (
+          {nextDividendIn === "in queue" && Number(pendingEarnings) > 0 && (
             <div className="detailed-info">
               <div className="tip">
                 Tired of waiting? Click claim to get the rewards now!
