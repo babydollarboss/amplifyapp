@@ -169,6 +169,7 @@ const DividendTokenEarningsContainer = styled.div`
   }
   .detailed-info .label {
     font-size: 13px;
+    opacity: 0.8;
   }
   .detailed-info .value {
     color: var(--color-brand-primary);
@@ -176,6 +177,10 @@ const DividendTokenEarningsContainer = styled.div`
   }
   .detailed-info.txid {
     justify-content: center;
+  }
+  .detailed-info .tip {
+    font-size: 11px;
+    opacity: 0.7;
   }
   button,
   .button {
@@ -408,37 +413,38 @@ function DividendTokenEarnings({
   const { dividendsInfo } = useTokenDividends(symbol);
   const { onClaim } = useClaimRewards(symbol);
 
-  const pendingEarnings = dividendsInfo
-    ? numberWithCommas(
-        Number(getFullDisplayBalance(dividendsInfo.pendingEarnings, 18, 2))
-      )
-    : "-";
+  let pendingEarnings = "-";
+  if (dividendsInfo) {
+    pendingEarnings = String(
+      Number(getFullDisplayBalance(dividendsInfo.pendingEarnings, 18, 2))
+    );
+  }
 
-  const balanceAmount = dividendsInfo
-    ? numberWithCommas(
-        Number(getFullDisplayBalance(dividendsInfo.earnings, 18, 2))
-      )
-    : "-";
-
-  // const dividendTime = dividendsInfo
-  //   ? getFullDisplayBalance(dividendsInfo.dividendTime, 18, 0)
-  //   : 0;
+  let balanceAmount = "-";
+  if (dividendsInfo) {
+    balanceAmount = numberWithCommas(
+      Number(getFullDisplayBalance(dividendsInfo.earnings, 18, 2))
+    );
+  }
 
   let nextDividendIn = "-";
-  if (dividendsInfo) {
+  if (dividendsInfo && pendingEarnings !== "-" && Number(pendingEarnings) > 0) {
     const timeLeftInSeconds = Math.round(
       Number(getFullDisplayBalance(dividendsInfo.dividendTime, 0, 0))
     );
     const timeLeftInMinutes = timeLeftInSeconds / 60;
     const minuteCutOff = Math.round(Math.floor(timeLeftInMinutes));
-    const remainingSeconds = timeLeftInSeconds - minuteCutOff * 60;
+    const remainingSeconds = Math.abs(minuteCutOff * 60 - timeLeftInSeconds);
 
-    nextDividendIn =
-      timeLeftInSeconds < 60
-        ? "< 1min"
-        : `${minuteCutOff}min ${
-            remainingSeconds > 0 ? `${remainingSeconds}sec` : ""
-          }`;
+    console.log("timeLeftInSeconds", timeLeftInSeconds);
+
+    nextDividendIn = `${timeLeftInSeconds > 60 ? `${minuteCutOff}min ` : ""}${
+      timeLeftInSeconds > 0 ? `${remainingSeconds}sec` : ""
+    }`;
+
+    if (nextDividendIn === "" && Number(pendingEarnings) > 0) {
+      nextDividendIn = "waiting for turn";
+    }
   }
 
   const handleClaim = async () => {
@@ -514,17 +520,26 @@ function DividendTokenEarnings({
         />
       </div>
       {active && (
-        <div className="detailed-info">
-          <div className="payout-info">
-            <span className="label">Next payout:</span>
-            <span className="value">{nextDividendIn}</span>
+        <>
+          <div className="detailed-info">
+            <div className="payout-info">
+              <span className="label">Next payout:</span>
+              <span className="value">{nextDividendIn}</span>
+            </div>
+            <div className="claim">
+              <button type="button" onClick={handleClaim} disabled={claiming}>
+                {!claiming ? "Claim" : "Claiming..."}
+              </button>
+            </div>
           </div>
-          <div className="claim">
-            <button type="button" onClick={handleClaim} disabled={claiming}>
-              {!claiming ? "Claim" : "Claiming..."}
-            </button>
-          </div>
-        </div>
+          {nextDividendIn === "" && Number(pendingEarnings) > 0 && (
+            <div className="detailed-info">
+              <div className="tip">
+                Tired of waiting? Click claim to get the rewards now!
+              </div>
+            </div>
+          )}
+        </>
       )}
       {txid && (
         <div className="detailed-info txid">
@@ -563,7 +578,7 @@ function TotalEarningsSection({
       <EarningsTable>
         <div className="header">
           <span>Token</span>
-          <span>Next Dividend</span>
+          <span>Pending Rewards</span>
           <span>Total Earnings</span>
         </div>
         {dividendTokenHoldings.map(({ symbol, ...rest }) => (
