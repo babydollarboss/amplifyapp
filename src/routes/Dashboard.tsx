@@ -137,6 +137,16 @@ const DividendTokenEarningsContainer = styled.div`
   user-select: none;
   border-radius: 10px;
   transition: all 0.3s ease;
+  .line {
+    position: absolute;
+    bottom: 3px;
+    height: 4px;
+    background: var(--color-brand-primary);
+    border-radius: 10px;
+    left: 4px;
+    width: calc(100% - 8px);
+    animation: fadeInOut 1s ease-in-out infinite alternate;
+  }
   &:hover {
     background: hsl(0deg 0% 0% / 10%);
   }
@@ -447,6 +457,7 @@ function DividendTokenEarnings({
   }
 
   let nextDividendIn = "-";
+  let percentageBar = 0;
   if (
     dividendsInfo &&
     pendingEarnings !== "-"
@@ -455,6 +466,8 @@ function DividendTokenEarnings({
     const timeLeftInSeconds = Math.round(
       Number(getFullDisplayBalance(dividendsInfo.dividendTime, 0, 0))
     );
+
+    percentageBar = timeLeftInSeconds / 3600;
     const timeLeftInMinutes = timeLeftInSeconds / 60;
     const minuteCutOff = Math.round(Math.floor(timeLeftInMinutes));
     const remainingSeconds = Math.abs(minuteCutOff * 60 - timeLeftInSeconds);
@@ -575,6 +588,15 @@ function DividendTokenEarnings({
             </a>
           </div>
         </div>
+      )}
+      {(nextDividendIn !== "-" && nextDividendIn !== "0sec") && (
+        <div
+          className="line"
+          style={{
+            transformOrigin: "left",
+            transform: `scaleX(${String(percentageBar)})`,
+          }}
+        />
       )}
     </DividendTokenEarningsContainer>
   );
