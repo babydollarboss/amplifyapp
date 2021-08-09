@@ -10,6 +10,7 @@ const FeaturesContainer = styled.div`
   transform-origin: center top;
   max-width: 100%;
   padding: 24px;
+  box-sizing: border-box;
   &.hidden {
     animation: fadeOutTransition 0.5s ease forwards;
   }
@@ -23,6 +24,7 @@ const FeatureBlocksContainer = styled(Container)`
   align-items: center;
   .feature-block {
     width: 300px;
+    max-width: calc(100% - 40px);
     height: 300px;
     display: flex;
     position: relative;
@@ -193,6 +195,9 @@ const FeaturesArray = [
     ),
   },
 ] as IFeaturesItem[];
+
+
+
 
 export function Features({ visible }: IRoute) {
   return (

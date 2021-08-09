@@ -37,7 +37,7 @@
 .logo {
   width: 55%;
   max-width: 380px;
-  animation: boombox 1.5s ease-in-out infinite alternate;
+  animation: boombox 10s ease-in-out infinite alternate;
 }
 
 .head-line__text {

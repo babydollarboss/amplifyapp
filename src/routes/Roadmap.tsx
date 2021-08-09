@@ -126,11 +126,11 @@ const FourthBlock = [
 const RoadmapContainer = styled.div`
   transition: all 0.3s ease;
   max-width: 100%;
-  min-height: 100%;
   width: 100%;
   animation: fadeInTransition 0.5s ease forwards;
   transform-origin: top;
   padding: 24px;
+  padding-bottom: 54px;
   box-sizing: border-box;
   &.hidden {
     animation: fadeOutTransition 0.5s ease forwards;
@@ -246,7 +246,7 @@ const RoadmapBlock = styled(
   }
   .baby-3 {
     position: absolute;
-    right: -50px;
+    right: -30px;
     bottom: -110px;
   }
   .baby-glow {

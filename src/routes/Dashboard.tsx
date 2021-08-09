@@ -99,6 +99,25 @@ const DashboardBlock = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
+  .title-with-btn {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  .show-all-btn {
+    background: none;
+    border: unset;
+    font-family: "KANIT";
+    color: var(--color-brand-primary);
+    letter-spacing: 1px;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+  .title-with-btn .title {
+    margin-bottom: 0;
+  }
   @media (max-width: 480px) {
     padding: 12px;
   }
@@ -428,7 +447,11 @@ function DividendTokenEarnings({
   }
 
   let nextDividendIn = "-";
-  if (dividendsInfo && pendingEarnings !== "-" && Number(pendingEarnings) > 0) {
+  if (
+    dividendsInfo &&
+    pendingEarnings !== "-"
+    // && Number(pendingEarnings) > 0
+  ) {
     const timeLeftInSeconds = Math.round(
       Number(getFullDisplayBalance(dividendsInfo.dividendTime, 0, 0))
     );
@@ -436,15 +459,13 @@ function DividendTokenEarnings({
     const minuteCutOff = Math.round(Math.floor(timeLeftInMinutes));
     const remainingSeconds = Math.abs(minuteCutOff * 60 - timeLeftInSeconds);
 
-    console.log("timeLeftInSeconds", timeLeftInSeconds);
-
     nextDividendIn = `${timeLeftInSeconds > 60 ? `${minuteCutOff}min ` : ""}${
-      timeLeftInSeconds > 0 ? `${remainingSeconds}sec` : ""
+      timeLeftInSeconds > 0 ? `${remainingSeconds}sec` : "0sec"
     }`;
 
-    if (nextDividendIn === "" && Number(pendingEarnings) > 0) {
-      nextDividendIn = "in queue...";
-    }
+    // if (nextDividendIn === "" && Number(pendingEarnings) > 0) {
+    //   nextDividendIn = "in queue...";
+    // }
   }
 
   const handleClaim = async () => {
@@ -571,10 +592,20 @@ function TotalEarningsSection({
   minimumRequirementMet,
 }: ITotalEarningsSection) {
   const [selectedRow, selectRow] = useState("BABYDOLLAR");
+  const [showAll, setShowAll] = useState(true);
 
   return (
     <DashboardBlock>
-      <div className="title">Total Earnings</div>
+      <div className="title-with-btn">
+        <div className="title">Total Earnings</div>
+        <button
+          className="show-all-btn"
+          onClick={() => setShowAll(!showAll)}
+          type="button"
+        >
+          {showAll ? "Hide All" : "Show All"}
+        </button>
+      </div>
       <EarningsTable>
         <div className="header">
           <span>Token</span>
@@ -585,7 +616,7 @@ function TotalEarningsSection({
           <DividendTokenEarnings
             minimumRequirementMet={minimumRequirementMet}
             onClick={() => selectRow(symbol)}
-            active={symbol === selectedRow}
+            active={showAll || symbol === selectedRow}
             onSetEarnings={onSetEarnings}
             key={symbol}
             symbol={symbol}

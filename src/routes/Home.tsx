@@ -17,6 +17,7 @@ const HomeContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: calc(100vh - 81px - 46px);
   &.hidden {
     animation: fadeOutTransition 0.5s ease forwards;
   }
@@ -268,6 +269,7 @@ const HomeContainer = styled.div`
     }
   }
   @media (max-width: 700px) {
+    min-height: unset;
     .headline-inner-box {
       flex-direction: column;
       align-items: center;
@@ -301,6 +303,7 @@ const HomeContainer = styled.div`
     }
     .headline-footer {
       font-size: 12px;
+      margin-top: unset;
     }
     .join-the-club,
     .live-chart {
@@ -309,11 +312,6 @@ const HomeContainer = styled.div`
     .join-now,
     .chart {
       display: inline-block;
-    }
-    .headline-footer {
-      flex-direction: column-reverse;
-      gap: 14px;
-      font-size: 18px;
     }
     .logo {
       max-width: 100px;
@@ -468,21 +466,21 @@ export function Home({ visible }: IRoute) {
         <div className="headline-footer">
           <div className="members">
             <div className="footer-value">
-              <span>359</span>
+              <span>338</span>
               <MemberIcon />
             </div>
             <div className="footer-title">Total Club Members</div>
           </div>
           <div className="total-paid">
             <div className="footer-value">
-              <span>$25866.11</span>
+              <span>$26467</span>
               <img src={BUSD} alt="busd" />
             </div>
             <div className="footer-title">Total Paid To Members</div>
           </div>
           <div className="marketcap">
             <div className="footer-value">
-              <span>$49,629.00</span>
+              <span>$33,361</span>
               <ChartIcon />
             </div>
             <div className="footer-title">Market Cap</div>

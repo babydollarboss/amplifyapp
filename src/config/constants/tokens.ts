@@ -36,7 +36,7 @@ import xrpapesABI from "../abi/xrpapes.json";
 
 export const BABYDOLLAR = new Token(
   ChainId.MAINNET,
-  "0x4e833a1bdeeb75b3778cf1637a0af420786c3099",
+  "0x4E833a1BDEEb75b3778Cf1637a0Af420786C3099",
   18,
   "BABYDOLLAR",
   "Baby Dollar"
@@ -44,7 +44,7 @@ export const BABYDOLLAR = new Token(
 
 export const BABYCAKE = new Token(
   ChainId.MAINNET,
-  "0xdb8d30b74bf098af214e862c90e647bbb1fcc58c",
+  "0xdB8D30b74bf098aF214e862C90E647bbB1fcC58c",
   18,
   "BABYCAKE",
   "Baby Cake"

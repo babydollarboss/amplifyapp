@@ -32,6 +32,8 @@ export function Routes() {
         isMounted={pathname === "/"}
       >
         <Home visible={pathname === "/"} />
+        <Features visible={pathname === "/"} />
+        <Roadmap visible={pathname === "/"} />
       </DelayedComponents>
       <DelayedComponents
         delayMount={400}
