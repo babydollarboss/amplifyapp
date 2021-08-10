@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import { IRoute } from "./types";
 import { LogoIcon, MemberIcon, ChartIcon } from "../components/SVGImages";
 import BUSD from "../tokenImages/busd.png";
+import CupCake from "../cupcake.png";
 
 const HomeContainer = styled.div`
   transition: all 0.3s ease;
@@ -418,18 +419,18 @@ export function Home({ visible }: IRoute) {
               </button>
             </div>
 
-            {/* <a
-            href="https://dessertswap.finance/audits/Baby%20Dollar%20BEP-20%20Audit%209558725.pdf"
-            target="_blank"
-            rel="noreferrer"
-            className="audit"
-          >
-            <div className="audit-text">
-              <span>DOXXED &amp; AUDITED BY</span>
-              <span>Dessert Finance</span>
-            </div>
-            <img src={CupCake} alt="dessert-finance" />
-          </a> */}
+            <a
+              href="https://dessertswap.finance/audits/Baby%20Dollar%20BEP-20%20Audit%209558725.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="audit"
+            >
+              <div className="audit-text">
+                <span>DOXXED &amp; AUDITED BY</span>
+                <span>Dessert Finance</span>
+              </div>
+              <img src={CupCake} alt="dessert-finance" />
+            </a>
           </div>
 
           {/* <div className="headline-buttons">
