@@ -594,7 +594,7 @@ function DividendTokenEarnings({
           className="line"
           style={{
             transformOrigin: "left",
-            transform: `scaleX(${String(percentageBar)})`,
+            transform: `scaleX(${String(1 - percentageBar)})`,
           }}
         />
       )}
